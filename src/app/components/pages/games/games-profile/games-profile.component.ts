@@ -17,9 +17,9 @@ export class GamesProfileComponent {
   rotaAtual = inject(ActivatedRoute);
   gameService = inject(GameService);
 
-  game: Game = new Game(0,'','','','',null);
-  sigla!: string;
-
+  game: Game = new Game();
+  sigla: string = '';
+  
   constructor() {
     this.sigla = this.rotaAtual.snapshot.params['sigla']
     this.findBySigla(this.sigla);
