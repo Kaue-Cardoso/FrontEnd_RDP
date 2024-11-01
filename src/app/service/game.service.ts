@@ -23,7 +23,7 @@ export class GameService {
   }
 
   findById(id: number): Observable<Game>{
-    return this.http.get<Game>(this.API+"//findById/"+id);
+    return this.http.get<Game>(this.API+"/findById/"+id);
   }
   
   update(game: Game): Observable<Game>{
