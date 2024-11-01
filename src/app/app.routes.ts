@@ -11,6 +11,10 @@ import { FighterComponent } from './components/pages/fighter/fighter/fighter.com
 import { CommunityComponent } from './components/pages/community/community.component';
 import { EventsFormComponent } from './components/pages/Events/events-form/events-form.component';
 import { EventsListComponent } from './components/pages/Events/events-list/events-list.component';
+import { GuideFormComponent } from './components/layout/guide/guide-form/guide-form.component';
+import { GuideListComponent } from './components/layout/guide/guide-list/guide-list.component';
+import { UserFormComponent } from './components/layout/user/user-form/user-form.component';
+import { UserListComponent } from './components/layout/user/user-list/user-list.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -25,6 +29,10 @@ export const routes: Routes = [
       { path: 'fighter-form/:sigla/new', component: FighterFormComponent },
       { path: 'fighter/:name', component: FighterComponent },
       { path: 'fighter-form/edit/:name', component: FighterFormComponent },
+      { path: 'guide-form', component: GuideFormComponent },
+      { path: 'guide-list', component: GuideListComponent },
+      { path: 'user-form', component: UserFormComponent },
+      { path: 'user-list', component: UserListComponent },
       {path: 'community',component: CommunityComponent,children: [
           { path: 'event-form', component: EventsFormComponent },
           { path: 'event-form/edit/:id', component: EventsFormComponent },
