@@ -25,9 +25,10 @@ export class GamesFormsComponent {
   gameService = inject(GameService);
 
   constructor(){
+    this.game.id = 0;
     let id = this.rotaAtual.snapshot.params['id'];
+    console.log(this.game.id);
     if (id > 0){
-
       this.tituloComponente = "Editar Jogo";
       this.findById(id);
     }
@@ -77,6 +78,29 @@ export class GamesFormsComponent {
           title: erro.error,
           icon: 'error'
         });
+      }
+    });
+  }
+
+  deleteById(game: Game){
+    Swal.fire({
+      title: "Tem certeza que deseja deletar "+game.nome+"?",
+      showCancelButton: true,
+      confirmButtonText: "Sim",
+      cancelButtonText: `Cancelar`
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.gameService.delete(game.id).subscribe({
+          next: mensagem =>{
+            Swal.fire(mensagem, "", "success").then(() => {
+              this.router.navigate(['main/games']);
+            })
+          },
+          error: erro => {
+            alert('Erro ao deletar');
+          }
+        })
+
       }
     });
   }
