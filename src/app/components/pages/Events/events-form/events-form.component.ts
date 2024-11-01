@@ -45,11 +45,10 @@ export class EventsFormComponent{
     
   }
 
-  selectedGame: Game | null = null; // Adicione essa propriedade ao componente
-
+  selectedGame: Game | null = null; 
 save() {
   if (this.selectedGame) {
-    this.evento.game = [this.selectedGame]; // Define `evento.game` como uma lista com o jogo selecionado
+    this.evento.game = [this.selectedGame]; 
   }
 
   if (this.evento.id > 0) {
