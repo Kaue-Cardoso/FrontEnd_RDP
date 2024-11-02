@@ -1,37 +1,83 @@
 <div class="tela">
-  <div class="container pt-4 config">
-    <div class="row conteudo">
-      <div class="col-md-4 p-2">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime consequuntur consectetur voluptas, hic magnam perferendis, dignissimos iure, nihil illo ex suscipit. Repellat aliquid deleniti sapiente magni dolor praesentium odio nihil.</p>
+  <div class="container pt-4">
+    <div class="conteudo">
+      <div class="p-2 carouselconfig">
+        <carousel *ngIf="isBrowser">
+          <slide>
+            <img src="assets/background/Gbvr.png" class="carouselimg" alt="first slide" style="display: block; width: 100%;">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>
+          </slide>
+          <slide>
+            <img src="assets/background/SF6.png" alt="second slide" class="carouselimg" style="display: block; width: 100%;">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </slide>
+          <slide>
+            <img src="assets/background/Kof15.png" alt="third slide" class="carouselimg" style="display: block; width: 100%;">
+            <div class="carousel-caption d-none d-md-block">
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>
+          </slide>
+        </carousel>      
       </div>
   
   
-      <div class="col-md-4 p-2">
-        <p>Oba</p>
-        </div>
-  
-  
-  
-      <div class="col-md-4 p-2 caracteristicas text-start ">
-        <div>
-          <p>Quantidade de Guias</p>
-          <p>Numero</p>
-        </div>
-        <div>
-          <p>Plataforma Disponiveis</p>
-          <i class="fab fa-steam mx-1"></i><i class="fab fa-playstation mx-1"></i><i class="fab fa-xbox mx-1"></i>
-        </div>
-        <div>
-          <p>Preço Atual</p>
-          <p>Valor</p>
-        </div>
-        <div>
-          <p>Quantidade de Guias</p>
-          <p>Numero</p>
-        </div>
-      </div>
+      <div class="row px-2 pb-4 mt-4 justify-content-center gap-2">
+        <p class="h2 pl-2">Proximos Eventos</p>
+
+          <div class="col-lg-4 card">
+            <img src="assets/background/Uni2.png" class="card-img-top pt-2" alt="Fissure in Sandstone"/>
+            <div class="card-body">
+              <h5 class="card-title">Final Regional - DF</h5>
+              <p class="card-text">Preparem-se, guerreiros da noite! 🌌 O torneio mais aguardado de Under Night In-Birth está chegando para reunir os melhores jogadores da região!</p>
+              <p>
+                📅 Data: 11/11/24
+              </p>
+              <p>
+                📍 Local: Brasilia - DF
+              </p>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-4 card">
+            <img src="assets/background/Tk8.png" class="card-img-top pt-2" alt="Fissure in Sandstone"/>
+            <div class="card-body">
+              <h5 class="card-title">Encontro de Players - SP</h5>
+              <p class="card-text">Lutadores, preparem seus punhos e seus combos! O aguardado Campeonato Regional de Tekken 8 está chegando, e é a sua chance de mostrar quem manda nas arenas! Nosso encontro pegara fogo com os melhores jogadores da região</p>
+              <p>
+                📅 Data: 28/11/24
+              </p>
+              <p>
+                📍 Local: São Paulo - SP
+              </p>
+              
+            </div>
+          </div>
+
+          <div class="col-lg-3 card">
+            <img src="assets/background/SF6.png" class="card-img-top pt-2" alt="Fissure in Sandstone"/>
+            <div class="card-body">
+              <h5 class="card-title">Classificatória de Street Fighter - Rumo ao Topo!</h5>
+              <p class="card-text">Atenção, lutadores! Chegou o momento de colocar suas habilidades à prova na Classificatória Regional de Street Fighter! Prepare-se para mostrar todo seu poder de luta e garantir uma vaga entre os melhores, rumo ao grande campeonato final! </p>
+              <p>
+                📅 Data: 03/12/24
+              </p>
+              <p>
+                📍 Local: Remoto
+              </p>
+              
+            </div>
+          </div>      
   
   
     </div>
+
   </div>
 </div>

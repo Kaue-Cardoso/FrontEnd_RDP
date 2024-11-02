@@ -16,8 +16,8 @@
     --titulos: "Germania One";
     --conteudo: "Afacad Flux";
 
-    // scrollbar-width: thin; /* Estiliza a largura da scrollbar */
-    // scrollbar-color: yellow red; /* Define a cor do thumb e do track */
+    // ******* Background ********
+    --background: url("/assets/background/backgroundsite.jpg");
     
 }
 *{
@@ -29,8 +29,9 @@ html, body {
     width: 100%;
 }
 
-body {
-    background-image: var(--bg_street);
+body {  
+    background-image: var(--background);
+    background-size: cover;
 }
 
 .titulos{

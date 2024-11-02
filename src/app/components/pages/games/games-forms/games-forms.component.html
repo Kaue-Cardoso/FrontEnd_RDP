@@ -6,14 +6,14 @@
             <div class="row">
                 <div class="col-md-6">
                     <mdb-form-control>
-                        <input [(ngModel)]="game.nome"  minlength="2" mdbInput required pattern=".*\S+.*" type="text"
+                        <input [(ngModel)]="game.nome"  minlength="2" maxlength="80" mdbInput required pattern=".*\S+.*" type="text"
                             class="form-control mb-4" name="nome" placeholder="Nome do Jogo"/>
                         <label mdbLabel class="form-label" for="nome">Titulo</label>
                     </mdb-form-control>
                 </div>
                 <div class="col-md-6">
                     <mdb-form-control>
-                        <input [(ngModel)]="game.sigla" mdbInput required minlength="2" pattern=".*\S+.*" type="text" class="form-control mb-4"
+                        <input [(ngModel)]="game.sigla" mdbInput required minlength="2" maxlength="80" pattern=".*\S+.*" type="text" class="form-control mb-4"
                             name="sigla" placeholder="Ex: Tk8 (Tekken 8)" />
                         <label mdbLabel class="form-label" for="sigla">Sigla</label>
                     </mdb-form-control>
@@ -22,14 +22,14 @@
     
             <!-- Text input -->
             <mdb-form-control class="mb-4">
-                <textarea [(ngModel)]="game.descricao" mdbInput required pattern=".*\S+.*" type="text" class="form-control"
+                <textarea [(ngModel)]="game.descricao" mdbInput required pattern=".*\S+.*" minlength="2" maxlength="2083" type="text" class="form-control"
                     name="descricao" rows="2"></textarea>
                 <label mdbLabel class="form-label" for="descricao">Descrição</label>
             </mdb-form-control>
     
             <!-- Text input -->
             <mdb-form-control class="mb-4">
-                <input [(ngModel)]="game.link" required mdbInput type="text" class="form-control"
+                <input [(ngModel)]="game.link" required pattern=".*\S+.*" mdbInput type="text" class="form-control"
                     name="link" placeholder="https://exemplo.com"/>
                 <label mdbLabel class="form-label" for="link">Link</label>
             </mdb-form-control>
