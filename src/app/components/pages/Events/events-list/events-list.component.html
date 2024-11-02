@@ -1,6 +1,6 @@
 <div class="container-fluid mt-5" style="background-color: black; border-radius: 20px; opacity: 0.9;">
   <h2 class="text-center mb-4" style="color: white;">Eventos de Jogos</h2>
-  
+  <a class="btn btn-success" href="main/community/event-form/">Criar Novo Evento</a>
   <!-- Exibir eventos em cards usando @for -->
   <div class="row">
       @for (Evento of lista; track $index) {
@@ -8,9 +8,9 @@
               <div class="card mb-4 shadow-sm" style="background-color: rgb(255, 255, 255);">
                   <div class="card-body">
                       <div class="bg-image card-image-top" mdbRipple rippleColor="light">
-                          <img src="/assets/UNI-2-Box-Art.jpg" class="img-fluid"
-                          width="350" height="100"/>
-                          <!-- /assets/logo/{{Evento.game[0].sigla}}.webp -->
+                          <img  class="img-fluid"
+                          width="350" height="100"[src]="'assets/background/'+ Evento.game[0].sigla + '.png'"
+                          alt="Imagem do Jogo {{Evento.game[0].nome}}"/>
                       </div>
                       <h3 class="card-title">{{ Evento.titulo }}</h3>
                       <p class="card-text">{{ Evento.descricao }}</p>

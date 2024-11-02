@@ -14,6 +14,7 @@ import { FighterService } from '../../../../service/fighter.service';
   templateUrl: './fighter-form.component.html',
   styleUrl: './fighter-form.component.scss'
 })
+
 export class FighterFormComponent {
 
   fighter: Fighter = new Fighter();
@@ -24,16 +25,33 @@ export class FighterFormComponent {
   router = inject(Router)
   activatedRoute = inject(ActivatedRoute)
   fighterService = inject(FighterService)
+
   name!: string; 
-  sigla!: string;
 
   constructor() {
     let name = this.activatedRoute.snapshot.params['name']
-    this.sigla = this.activatedRoute.snapshot.params['sigla']
+    let sigla = this.activatedRoute.snapshot.params['sigla']
+
+    this.findGameBySigla(sigla)
+
     if (name != null) {
       this.findByNome(name);
       this.tituloComponente = "Editar Personagem"
     }
+  }
+
+  findGameBySigla(sigla: string) {
+    this.gameService.findBySigla(sigla).subscribe({
+      next: gam => {
+        this.fighter.game = gam;
+      },
+      error: erro => {
+        Swal.fire({
+          title: erro.error,
+          icon: "error"
+        })
+      }
+    }) 
   }
 
   findByNome(nome: string) {
@@ -48,25 +66,13 @@ export class FighterFormComponent {
   }
 
   editar() {
-    this.gameService.findBySigla(this.sigla).subscribe({
-      next: game => {
-        this.fighter.game = game;
-        console.log(this.fighter.game.sigla)
-
-      },
-      error: erro => {
-        console.log(erro.error)
-      }
-
-    });
-
     this.fighterService.editar(this.fighter).subscribe({
       next: msg => {
         Swal.fire({
           title: msg,
           icon: "success"
         }).then(() => {
-          this.router.navigate(['main', 'fighter-list']);
+          this.router.navigate(['main', 'games', this.fighter.game.sigla]);
         });
       },
       error: erro => {
@@ -74,32 +80,20 @@ export class FighterFormComponent {
           title: erro.error,
           icon: "error"
         }).then(() => {
-          this.router.navigate(['main', 'fighter-list']);
+          this.router.navigate(['main', 'games', this.fighter.game.sigla]);
         });
       }
     })
   }
 
   salvar() {
-    this.gameService.findById(1).subscribe({
-      next: game => {
-        this.fighter.game = game;
-        console.log(this.fighter.game.sigla)
-
-      },
-      error: erro => {
-        console.log(erro.error)
-      }
-
-    });
-
     this.fighterService.salvar(this.fighter).subscribe({
       next: msg => {
         Swal.fire({
           title: msg,
           icon: "success"
         }).then(() => {
-          this.router.navigate(['main', 'fighter-list']);
+          this.router.navigate(['main', 'games', this.fighter.game.sigla]);
         });
       },
       error: erro => {

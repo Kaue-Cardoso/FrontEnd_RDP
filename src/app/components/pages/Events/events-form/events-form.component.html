@@ -17,15 +17,23 @@
         </mdb-form-control>
     </div>
   
-    <!-- Data de Término -->
-     <!-- Data de Término 
-     <div class="form-outline form-white mb-4">
-         <mdb-form-control>
-             <input mdbInput type="date" id="endDate" class="form-control form-control-lg" />
-             <label  mdbLabel class="form-label" for="endDate">Data de Término</label>
-            </mdb-form-control>
-        </div>
-    -->
+    <div class="form-outline mb-4">
+        <label for="gameDropdown" class="form-label" style="color: white;">Selecione o Jogo</label>
+        <select
+            id="gameDropdown"
+            class="form-control form-control-lg form-white"
+            [(ngModel)]="selectedGame"
+            name="gameDropdown"
+            required>
+            @for (game of games; track $index) {
+                <option [ngValue]="game">{{ game.nome }}</option>
+            }
+        </select>
+    </div>
+    
+
+    
+    
     <div class="form-outline form-white mb-4">
         <mdb-form-control>
             <input mdbInput type="text" id="eventLink" class="form-control form-control-lg" [(ngModel)]="evento.link" />

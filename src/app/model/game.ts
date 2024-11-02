@@ -14,7 +14,4 @@ export class Game {
     evento!: Evento[];
     guide!: Guide[];
 
-    constructor(){
-        
-    }
 }
