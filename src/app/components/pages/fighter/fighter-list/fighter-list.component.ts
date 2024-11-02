@@ -17,6 +17,7 @@ import { Fighter } from '../../../../model/fighter';
 export class FighterListComponent implements OnInit {
 
   @Input() sigla!: string;
+  @Input("fighter") fighter : Fighter = new Fighter;
 
   ngOnInit(): void {
     this.findGameBySigla(this.sigla)

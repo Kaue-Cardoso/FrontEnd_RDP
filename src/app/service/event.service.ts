@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Evento } from '../model/evento';
+import { Game } from '../model/game';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,9 @@ export class EventService {
   findById(id:number): Observable<Evento>{
     return this.http.get<Evento>(this.API+"/findById/"+id);
   }
+
+  getAllGames(): Observable<Game[]> {
+    return this.http.get<Game[]>(this.API+"/findAll");
 }
 
+}

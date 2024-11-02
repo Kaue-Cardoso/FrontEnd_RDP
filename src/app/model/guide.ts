@@ -3,16 +3,18 @@ import { Game } from "./game";
 import { User } from "./user";
 
 export class Guide {
-    id!: number;
-    titulo!: string;
-    tipo!: string;
-    descricao!: string;
-    link!: string;
-    data_cr!: string;
-    likes!: number;
-    dislikes!: number;
+  id!: number;
+  titulo!: string;
+  tipo!: string;
+  descricao!: string;
+  link!: string;
+  data_cr!: Date;
+  likes: number = 0;
+  dislikes: number = 0;
+  fighter!: Fighter;
+  game!: Game;
+  user!: User;
 
-    fighter!: Fighter;
-    game!: Game;
-    user!: User;
+  constructor() {
+  }
 }
