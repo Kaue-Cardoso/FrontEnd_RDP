@@ -1,9 +1,9 @@
 import { Component, inject, TemplateRef, ViewChild, viewChild } from '@angular/core';
-import { Guide } from '../../model/guide';
-import { GuideService } from '../../service/guide.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { Guide } from '../../../../model/guide';
+import { GuideService } from '../../../../service/guide.service';
 
 
 

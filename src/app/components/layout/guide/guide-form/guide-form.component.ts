@@ -2,10 +2,10 @@ import { Component, Inject, inject, Input, input, TemplateRef, ViewChild } from 
 import { FormsModule } from '@angular/forms';
 import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
-import { MdbModalModule } from 'mdb-angular-ui-kit/modal';
+import { MdbModalModule, MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { FighterListComponent } from '../../../pages/fighter/fighter-list/fighter-list.component';
 import { Guide } from '../../../../model/guide';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 import { GuideService } from '../../../../service/guide.service';
 import { Fighter } from '../../../../model/fighter';
 import { Game } from '../../../../model/game';
@@ -24,11 +24,16 @@ import Swal from 'sweetalert2';
 export class GuideFormComponent {
   guide: Guide = new Guide();
   router = inject(Router);
+  character : Fighter = new Fighter();
 
   guideService = inject(GuideService);
 
-  fighters : Fighter [] = [];
+  fighters : Fighter [] = []; 
   games : Game [] = [];
+
+  modalService = inject(MdbModalService);
+  @ViewChild ("listaFighters") listaFighters!: TemplateRef<any>;
+  modalRef!: MdbModalRef <any>; 
   constructor(){
     
   }
@@ -51,5 +56,9 @@ export class GuideFormComponent {
     })
   }
 
+  SelecionaFighter(fighter : Fighter){
+    this.character = fighter;
+    this.modalService.open(this.listaFighters);
+  }
   
 }

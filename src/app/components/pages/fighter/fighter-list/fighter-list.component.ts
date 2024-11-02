@@ -16,6 +16,7 @@ import { Fighter } from '../../../../model/fighter';
 })
 export class FighterListComponent {
 
+  @Input("fighter") fighter : Fighter = new Fighter;
   @Input()sigla!: string;
   user: User = new User();
 

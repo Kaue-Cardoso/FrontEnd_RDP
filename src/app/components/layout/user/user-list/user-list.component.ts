@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import Swal from 'sweetalert2';
-import { User } from '../../model/user';
-import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
+import { User } from '../../../../model/user';
+import { UserService } from '../../../../service/user.service';
 
 @Component({
   selector: 'app-user-list',

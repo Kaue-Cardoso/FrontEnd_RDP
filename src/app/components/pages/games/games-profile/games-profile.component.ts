@@ -17,7 +17,7 @@ export class GamesProfileComponent {
   rotaAtual = inject(ActivatedRoute);
   gameService = inject(GameService);
 
-  game: Game = new Game(0,'','','','',null);
+  game: Game = new Game();
   sigla!: string;
 
   constructor() {
