@@ -18,8 +18,9 @@ export class GamesProfileComponent {
   gameService = inject(GameService);
 
   game: Game = new Game();
-  sigla: string = '';
-  
+
+  sigla: string;
+
   constructor() {
     this.sigla = this.rotaAtual.snapshot.params['sigla']
     this.findBySigla(this.sigla);

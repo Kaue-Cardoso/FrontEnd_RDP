@@ -1,7 +1,3 @@
-
-import { Evento } from "./evento";
-import { Guide } from "./guide";
-
 export class User {
     id!: number;
     apelido!: string;
@@ -12,6 +8,6 @@ export class User {
     isMod!: boolean;
     isVet!: boolean;
 
-    eventos!: Evento[];
-    guide!: Guide[];
+    constructor(){ 
+    }
 }
