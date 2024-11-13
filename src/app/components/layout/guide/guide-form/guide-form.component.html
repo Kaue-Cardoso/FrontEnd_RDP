@@ -55,7 +55,7 @@
                 </ul>
               </div> -->
 
-              <button (click)="SelecionaFighter(fighter)" class="btn btn-primary btn-rounded">Fighter</button>
+              <button (click)="SelecionaFighter(character)" class="btn btn-primary btn-rounded">Fighter</button>
 
 
               <div mdbDropdown class="dropdown">
@@ -109,7 +109,7 @@
       </div>
       <div class="modal-body">
 
-        <app-fighter-list [fighter]="character" ></app-fighter-list>
+        <app-fighter-list (fighter)="character" ></app-fighter-list>
 
       </div>
       <div class="modal-footer">

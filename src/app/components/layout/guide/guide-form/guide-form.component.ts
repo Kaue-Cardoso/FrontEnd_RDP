@@ -1,4 +1,4 @@
-import { Component, Inject, inject, Input, input, TemplateRef, ViewChild } from '@angular/core';
+import { Component, inject, TemplateRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MdbDropdownModule } from 'mdb-angular-ui-kit/dropdown';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
@@ -10,9 +10,6 @@ import { GuideService } from '../../../../service/guide.service';
 import { Fighter } from '../../../../model/fighter';
 import { Game } from '../../../../model/game';
 import Swal from 'sweetalert2';
-
-
-
 
 @Component({
   selector: 'app-guide-form',

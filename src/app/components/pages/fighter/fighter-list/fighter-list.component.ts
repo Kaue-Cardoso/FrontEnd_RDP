@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FighterService } from '../../../../service/fighter.service';
@@ -16,7 +16,8 @@ import { Fighter } from '../../../../model/fighter';
 })
 export class FighterListComponent {
 
-  @Input("fighter") fighter : Fighter = new Fighter;
+  @Output("fighter") fighter = new EventEmitter<Fighter>();
+
   @Input()sigla!: string;
   user: User = new User();
 
