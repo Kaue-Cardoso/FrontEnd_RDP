@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
@@ -7,6 +7,7 @@ import { Evento } from '../../../../model/evento';
 import { EventService } from '../../../../service/event.service';
 import { User } from '../../../../model/user';
 import { Game } from '../../../../model/game';
+import { GameService } from '../../../../service/game.service';
 
 
 @Component({
@@ -16,14 +17,16 @@ import { Game } from '../../../../model/game';
   templateUrl: './events-form.component.html',
   styleUrl: './events-form.component.scss',
 })
-export class EventsFormComponent {
+export class EventsFormComponent{
   router = inject(Router);
   activeroutes = inject(ActivatedRoute);
   evento: Evento = new Evento();
   eventService = inject(EventService);
+  gameService = inject(GameService);
   user: User = new User();
-  game: Game[] = [
+  games: Game[] = [
   ];
+  
 
   constructor() {
     let id = this.activeroutes.snapshot.params["id"];
@@ -37,49 +40,55 @@ export class EventsFormComponent {
     this.user.data_reg = '03/05/2005';
     this.user.isMod = true;
     this.user.isVet = true;
+
+    this.findAllGames();
+    
   }
 
-  save() {
-    if (this.evento.id > 0) {
-      this.eventService.update(this.evento, this.evento.id).subscribe({
-        next: (mensagem) => {
-          Swal.fire({
-            title: mensagem,
-            icon: 'success',
-            confirmButtonText: 'Ok',
-          });
-          this.router.navigate(['main', 'community', 'events-list']);
-        },
-        error: (erro) => {
-          Swal.fire({
-            title: 'Ocorreu um erro: ' + erro.error,
-            icon: 'error',
-            confirmButtonText: 'Ok',
-          });
-        },
-      });
-    } else {
-      this.evento.user = [this.user];
-      this.evento.game = this.game;
-      this.eventService.save(this.evento).subscribe({
-        next: (mensagem) => {
-          Swal.fire({
-            title: mensagem,
-            icon: 'success',
-            confirmButtonText: 'Ok',
-          });
-            
-        },
-        error: (erro) => {
-          Swal.fire({
-            title: 'Ocorreu um erro: ' + erro.error,
-            icon: 'error',
-            confirmButtonText: 'Ok',
-          });
-        },
-      });
-    }
+  selectedGame: Game | null = null; 
+save() {
+  if (this.selectedGame) {
+    this.evento.game = [this.selectedGame]; 
   }
+
+  if (this.evento.id > 0) {
+    this.eventService.update(this.evento, this.evento.id).subscribe({
+      next: (mensagem) => {
+        Swal.fire({
+          title: mensagem,
+          icon: 'success',
+          confirmButtonText: 'Ok',
+        });
+        this.router.navigate(['main', 'community', 'events-list']);
+      },
+      error: (erro) => {
+        Swal.fire({
+          title: 'Ocorreu um erro: ' + erro.error,
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        });
+      },
+    });
+  } else {
+    this.evento.user = [this.user];
+    this.eventService.save(this.evento).subscribe({
+      next: (mensagem) => {
+        Swal.fire({
+          title: mensagem,
+          icon: 'success',
+          confirmButtonText: 'Ok',
+        });
+      },
+      error: (erro) => {
+        Swal.fire({
+          title: 'Ocorreu um erro: ' + erro.error,
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        });
+      },
+    });
+  }
+}
 
   findById(id:number) {
     this.eventService.findById(id).subscribe({
@@ -95,4 +104,15 @@ export class EventsFormComponent {
       },
     });
   }
+  findAllGames(){
+    this.gameService.findAllGames().subscribe({
+      next: jogo => {
+        this.games = jogo;
+      },
+      error: erro => {
+        console.log(erro.error)
+      }
+    })
+  }
 }
+

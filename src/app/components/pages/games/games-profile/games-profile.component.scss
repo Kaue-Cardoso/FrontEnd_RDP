@@ -1,14 +1,14 @@
+*{
+    color: var(--branco);
+}
 .config{
     margin: 0;
     padding: 5vh 0;
-    color: var(--branco);
+    // color: var(--branco);
     background-position: center center;
     background-size: cover;
     background-attachment: fixed;
     background-repeat: no-repeat;
-}
-.corzinha{
-    color: var(--branco);
 }
 .card{
     background-color: rgba(43, 42, 42, 0.8);
@@ -51,6 +51,7 @@
 
 }
 .edit{
+    margin-top: 10px;
     background: none;
     border: none;
     

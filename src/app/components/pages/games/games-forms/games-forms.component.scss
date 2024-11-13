@@ -13,6 +13,11 @@
         --mdb-card-footer-border-color: #DC5F00;
     }
 }
+.btn-proprio{
+    background-color: var(--laranja);
+    color: var(--branco);
+    margin: 0 10px;
+}
 mdb-form-control{
     input{
         color: var(--branco);

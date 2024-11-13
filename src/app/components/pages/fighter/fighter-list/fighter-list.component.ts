@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FighterService } from '../../../../service/fighter.service';
@@ -14,21 +14,23 @@ import { Fighter } from '../../../../model/fighter';
   templateUrl: './fighter-list.component.html',
   styleUrl: './fighter-list.component.scss'
 })
-export class FighterListComponent {
+export class FighterListComponent implements OnInit {
 
-  @Output("fighter") fighter = new EventEmitter<Fighter>();
+  @Input() sigla!: string;
+  @Input("fighter") fighter : Fighter = new Fighter;
 
-  @Input()sigla!: string;
+  ngOnInit(): void {
+    this.findGameBySigla(this.sigla)
+  }
   user: User = new User();
+  game: Game = new Game();
 
   router = inject(Router);
   fighterService = inject(FighterService)
-
-  game: string = 'BBCF';
+  gameService = inject(GameService)
 
   constructor() {
     this.user.isMod = true;
-    this.findAllFighters()
   }
 
   characters: Fighter[] = [];
@@ -37,13 +39,31 @@ export class FighterListComponent {
     this.router.navigate(['main', "fighter", name])
   }
 
+  findGameBySigla(sigla: string) {
+    this.gameService.findBySigla(sigla).subscribe({
+      next: gam => {
+        this.game = gam;
+        this.findAllFighters()
+      },
+      error: erro => {
+        Swal.fire({
+          title: erro.error,
+          icon: "error"
+        })
+      }
+    }) 
+  }
+
   findAllFighters() {
-    this.fighterService.findByGameNome(this.game).subscribe({
+    this.fighterService.findByGameNome(this.game.nome).subscribe({
       next: char => {
         this.characters = char;
       },
       error: erro => {
-        console.log(erro.error)
+        Swal.fire({
+          title: erro.error,
+          icon: "error"
+        })
       }
     })
   }
@@ -62,7 +82,10 @@ export class FighterListComponent {
             this.findAllFighters();
           },
           error: erro => {
-            alert(erro.error);
+            Swal.fire({
+              title: erro.error,
+              icon: "error"
+            })
           }
         });
       }

@@ -43,15 +43,20 @@
     
             <!-- Submit button -->
             @if(game.id == 0){
-            <button [disabled]="!formulario1.valid" (click)="save()" class="btn btn-primary">
+            <button [disabled]="!formulario1.valid" (click)="save()" class="btn btn-proprio">
                 Salvar
-                
             </button>
             }@else{
-            <button [disabled]="!formulario1.valid" class="btn btn-proprio">
-                Atualizar
-                <!-- (click)="update()" -->
-            </button>
+                <div>
+                    <button [disabled]="!formulario1.valid" (click)="update()" class="btn btn-proprio">
+                        Atualizar
+                    </button>
+
+                    
+                    <button [disabled]="!formulario1.valid" (click)="deleteById(game)" class="btn btn-proprio">
+                        Excluir
+                    </button>
+                </div>
             }
         </form>
         </div>
