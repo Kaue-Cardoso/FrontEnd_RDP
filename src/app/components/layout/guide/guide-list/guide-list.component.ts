@@ -1,7 +1,7 @@
 import { Component, inject, TemplateRef, ViewChild, viewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { MdbModalRef } from 'mdb-angular-ui-kit/modal';
+import { MdbModalRef, } from 'mdb-angular-ui-kit/modal';
 import { Guide } from '../../../../model/guide';
 import { GuideService } from '../../../../service/guide.service';
 
@@ -19,9 +19,17 @@ export class GuideListComponent {
   guideService =  inject (GuideService);
   router = inject(Router);
 
+  @ViewChild('selecionaFighter') selecionaFighter!: TemplateRef<any>;
+  modalRef!: MdbModalRef<any>;
+
   constructor(){
     this.findAll();
   }
+
+  goToGuide(id: number){
+    this.router.navigate(['main',"guide", id])
+  }
+
 
   findAll(){
     this.guideService.findAll().subscribe({
@@ -76,4 +84,5 @@ export class GuideListComponent {
     });
   }
 
+  
 }

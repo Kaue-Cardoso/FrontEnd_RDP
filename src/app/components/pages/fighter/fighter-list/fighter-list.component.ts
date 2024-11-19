@@ -15,9 +15,9 @@ import { Fighter } from '../../../../model/fighter';
   styleUrl: './fighter-list.component.scss'
 })
 export class FighterListComponent implements OnInit {
-
+  @Input() modalMode! : boolean;
   @Input() sigla!: string;
-  @Input("fighter") fighter : Fighter = new Fighter;
+  @Output("fighter") fighter = new EventEmitter<Fighter>();
 
   ngOnInit(): void {
     this.findGameBySigla(this.sigla)
@@ -92,4 +92,7 @@ export class FighterListComponent implements OnInit {
     });
   }
 
+  retorno(character: Fighter){
+    this.fighter.emit(character);
+  }
 }

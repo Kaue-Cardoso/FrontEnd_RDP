@@ -15,6 +15,7 @@ import { GuideFormComponent } from './components/layout/guide/guide-form/guide-f
 import { GuideListComponent } from './components/layout/guide/guide-list/guide-list.component';
 import { UserFormComponent } from './components/layout/user/user-form/user-form.component';
 import { UserListComponent } from './components/layout/user/user-list/user-list.component';
+import { GuideComponent } from './components/layout/guide/guide/guide.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -25,12 +26,13 @@ export const routes: Routes = [
       { path: 'games/cadastro', component: GamesFormsComponent },
       { path: 'games/edit/:id', component: GamesFormsComponent },
       { path: 'games/:sigla', component: GamesProfileComponent },
-      { path: 'fighter-list', component: FighterListComponent },
+      { path: 'fighter-list', component: FighterListComponent },  
       { path: 'fighter-form/:sigla/new', component: FighterFormComponent },
       { path: 'fighter/:name', component: FighterComponent },
       { path: 'fighter-form/edit/:name', component: FighterFormComponent },
       { path: 'guide-form', component: GuideFormComponent },
       { path: 'guide-list', component: GuideListComponent },
+      { path: 'guide/:id', component: GuideComponent },
       { path: 'user-form', component: UserFormComponent },
       { path: 'user-list', component: UserListComponent },
       {path: 'community',component: CommunityComponent,children: [

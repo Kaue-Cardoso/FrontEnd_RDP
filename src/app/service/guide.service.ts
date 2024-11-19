@@ -13,6 +13,7 @@ export class GuideService {
   constructor() { }
 
   save(guide : Guide) : Observable<string>{
+    guide.data_cr = 'data';
     return this.http.post<string>(this.API+"/save", guide, {responseType: 'text' as 'json'});
   }
 
@@ -26,6 +27,9 @@ export class GuideService {
 
   findById(id:number) : Observable<Guide>{
     return this.http.get<Guide>(this.API+"/findById/"+id);
+  }
+  findByTitulo(titulo:string) : Observable<Guide>{
+    return this.http.get<Guide>(this.API+"/findByTitulo/"+titulo);
   }
   delete(id:number) : Observable<string>{
     return this.http.delete<string>(this.API+"/delete/"+id);
