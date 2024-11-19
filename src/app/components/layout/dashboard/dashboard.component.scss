@@ -7,13 +7,18 @@
     border-radius: 0;
     // border: ;
 }
-.carousel{
-    height: 150px;
-    width: 300px;
-    overflow: hidden; /* Oculta partes das imagens que saem do limite */
+.carousel-caption{
+    background-color: rgba(0, 0, 0, 0.204);
+    
 }
-.carousel img {
-    height: 100%; /* Mantém as imagens na altura do carrossel */
-    width: auto; /* Largura se ajusta automaticamente para manter a proporção */
-    object-fit: cover; /* Preenche o espaço sem distorcer */
+.carouselimg{
+    width: 100%;
+    height: 70vh;
+}
+@media screen and (max-width:425px) {
+    .carouselimg{
+        width: 100%;
+        height: 35vh;
+    } 
+    
 }

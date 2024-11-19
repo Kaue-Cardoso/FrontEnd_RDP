@@ -35,13 +35,13 @@
                 @if (user.isMod == true) {
                 <div>
                   <a
-                    class="btn btn-sm btn-light me-1"
+                    class="btn btn-sm edit mx-1"
                     routerLink="/main/fighter-form/edit/{{ character.nome }}"
                   >
                     Edit
                   </a>
                   <a
-                    class="btn btn-sm btn-danger"
+                    class="btn btn-sm btn-danger mx-2"
                     (click)="deleteCharacter(character)"
                   >
                     X
