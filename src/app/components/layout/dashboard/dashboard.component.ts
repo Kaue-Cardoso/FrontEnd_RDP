@@ -1,6 +1,10 @@
-import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, inject, Inject, PLATFORM_ID } from '@angular/core';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { EventService } from '../../../service/event.service';
+import { Evento } from '../../../model/evento';
+import { Game } from '../../../model/game';
+import Swal from 'sweetalert2';
 
 
 
@@ -15,8 +19,30 @@ export class DashboardComponent {
 
   isBrowser: boolean;
 
+
+  lista: Evento[] = [];
+  game: Game[] = []
+  eventService = inject(EventService);
+
+  findAll() {
+    this.eventService.findAll().subscribe({
+      next: (lista) => {
+        this.lista = lista; 
+      },
+      error: (erro) => {
+        Swal.fire({
+          title: 'Ocorreu um erro: '+erro,
+          icon: 'error',
+          confirmButtonText: 'Ok',
+        });
+      }
+    });
+  }
+
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.isBrowser = isPlatformBrowser(this.platformId);
+    this.findAll();
+
   }
 
 }

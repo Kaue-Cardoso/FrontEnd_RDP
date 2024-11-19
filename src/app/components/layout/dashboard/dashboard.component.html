@@ -31,13 +31,15 @@
       <div class="row px-2 pb-4 mt-4 justify-content-center gap-2">
         <p class="h2 pl-2">Proximos Eventos</p>
 
-          <div class="col-lg-4 card">
-            <img src="assets/background/Uni2.png" class="card-img-top pt-2" alt="Fissure in Sandstone"/>
+        
+      @for (Evento of lista; track $index) {
+          <div class="col-lg-3 card">
+            <img  class="card-img-top pt-2" [src]="'assets/background/'+ Evento.game[0].sigla + '.png'" alt="Imagem do Jogo {{Evento.game[0].nome}}"/>
             <div class="card-body">
-              <h5 class="card-title">Final Regional - DF</h5>
-              <p class="card-text">Preparem-se, guerreiros da noite! 🌌 O torneio mais aguardado de Under Night In-Birth está chegando para reunir os melhores jogadores da região!</p>
+              <h5 class="card-title">{{ Evento.titulo }}</h5>
+              <p class="card-text">{{ Evento.descricao }}</p>
               <p>
-                📅 Data: 11/11/24
+                📅 {{Evento.date}}
               </p>
               <p>
                 📍 Local: Brasilia - DF
@@ -45,36 +47,7 @@
               
             </div>
           </div>
-
-          <div class="col-lg-4 card">
-            <img src="assets/background/Tk8.png" class="card-img-top pt-2" alt="Fissure in Sandstone"/>
-            <div class="card-body">
-              <h5 class="card-title">Encontro de Players - SP</h5>
-              <p class="card-text">Lutadores, preparem seus punhos e seus combos! O aguardado Campeonato Regional de Tekken 8 está chegando, e é a sua chance de mostrar quem manda nas arenas! Nosso encontro pegara fogo com os melhores jogadores da região</p>
-              <p>
-                📅 Data: 28/11/24
-              </p>
-              <p>
-                📍 Local: São Paulo - SP
-              </p>
-              
-            </div>
-          </div>
-
-          <div class="col-lg-3 card">
-            <img src="assets/background/SF6.png" class="card-img-top pt-2" alt="Fissure in Sandstone"/>
-            <div class="card-body">
-              <h5 class="card-title">Classificatória de Street Fighter - Rumo ao Topo!</h5>
-              <p class="card-text">Atenção, lutadores! Chegou o momento de colocar suas habilidades à prova na Classificatória Regional de Street Fighter! Prepare-se para mostrar todo seu poder de luta e garantir uma vaga entre os melhores, rumo ao grande campeonato final! </p>
-              <p>
-                📅 Data: 03/12/24
-              </p>
-              <p>
-                📍 Local: Remoto
-              </p>
-              
-            </div>
-          </div>      
+        }     
   
   
     </div>

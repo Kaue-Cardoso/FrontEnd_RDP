@@ -17,7 +17,7 @@ import { UserFormComponent } from './components/layout/user/user-form/user-form.
 import { UserListComponent } from './components/layout/user/user-list/user-list.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'main/dashboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainComponent, children: [
       { path: 'dashboard', component: DashboardComponent },
