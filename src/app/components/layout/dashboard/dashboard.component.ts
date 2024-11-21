@@ -25,7 +25,7 @@ export class DashboardComponent {
   eventService = inject(EventService);
 
   findAll() {
-    this.eventService.findAll().subscribe({
+    this.eventService.findLast5().subscribe({
       next: (lista) => {
         this.lista = lista; 
       },

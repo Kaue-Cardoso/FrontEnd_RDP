@@ -38,8 +38,7 @@ export class EventsFormComponent{
     this.user.senha = 'batata';
     this.user.email = 'batata@gmail.com';
     this.user.data_reg = '03/05/2005';
-    this.user.isMod = true;
-    this.user.isVet = true;
+    this.user.role = 'MODERADOR';
 
     this.findAllGames();
     

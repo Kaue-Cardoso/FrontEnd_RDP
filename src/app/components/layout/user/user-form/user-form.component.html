@@ -9,6 +9,12 @@
 
             <!-- User input -->
             <mdb-form-control class="mb-4">
+              <input [(ngModel)]="user.username" name="username" mdbInput type="text" id="form4Example1"
+                class="form-control" />
+              <label mdbLabel class="form-label" for="form4Example1">Nome de Usuario</label>
+            </mdb-form-control>
+
+            <mdb-form-control class="mb-4">
               <input [(ngModel)]="user.apelido" name="apelido" mdbInput type="text" id="form4Example1"
                 class="form-control" />
               <label mdbLabel class="form-label" for="form4Example1">Apelido</label>

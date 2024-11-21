@@ -11,6 +11,7 @@ export class Guide {
   data_cr!: Date;
   likes: number = 0;
   dislikes: number = 0;
+  
   fighter!: Fighter;
   game!: Game;
   user!: User;

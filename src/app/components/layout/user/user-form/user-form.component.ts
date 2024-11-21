@@ -26,8 +26,7 @@ export class UserFormComponent {
   userService = inject(UserService);
 
   save() {
-    this.user.isMod = true;
-    this.user.isVet = true; 
+    this.user.role = 'MODERADOR'
     this.user.data_reg = this.dataFormatada;
     this.userService.save(this.user).subscribe({
       next: (mensagem) => {
@@ -35,7 +34,7 @@ export class UserFormComponent {
           title: 'Guia criado com sucesso!',
           icon: 'success',
         }).then(() => {
-          this.router.navigate(['dashboard']);
+          this.router.navigate(['/main/dashboard']);
         });
       },
       error: (erro) => {

@@ -16,8 +16,11 @@ export class EventService {
   constructor() { }
 
   findAll(): Observable<Evento[]>{
-
     return this.http.get<Evento[]>(this.API+"/findAll")
+  }
+
+  findLast5(): Observable<Evento[]>{
+    return this.http.get<Evento[]>(this.API+"/findLast5")
   }
 
   delete(id:number): Observable<string>{

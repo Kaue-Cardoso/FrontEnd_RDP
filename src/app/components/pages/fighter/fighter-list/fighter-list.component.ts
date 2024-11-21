@@ -31,7 +31,7 @@ export class FighterListComponent implements OnInit {
   gameService = inject(GameService)
 
   constructor() {
-    this.user.isMod = true;
+    this.user.role = 'MODERADOR'
   }
 
   characters: Fighter[] = [];
