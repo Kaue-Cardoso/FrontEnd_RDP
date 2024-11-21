@@ -1,13 +1,14 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { catchError, throwError } from 'rxjs';
 
 export const meuhttpInterceptor: HttpInterceptorFn = (request, next) => {
+  const router = inject(Router);
 
-  let router = inject(Router);
 
-  let token = localStorage.getItem('token');
+  const token = localStorage.getItem('token');
   if (token && !router.url.includes('/login')) {
     request = request.clone({
       setHeaders: { Authorization: 'Bearer ' + token },
@@ -17,24 +18,19 @@ export const meuhttpInterceptor: HttpInterceptorFn = (request, next) => {
   return next(request).pipe(
     catchError((err: any) => {
       if (err instanceof HttpErrorResponse) {
-	  
-	  
-        if (err.status === 401) { //401 - NON AUTHORIZED
+        if (err.status === 401) {
+        
+          if (!router.url.includes('/dashboard')) {
+            router.navigate(['/dashboard']);
+          }
+        } else if (err.status === 403) {
 
-          alert('401 - tratar aqui - VOCESSS VAO TRATAR ESSES ERROSSS ');
-          router.navigate(['/dashboard']);
-
-
-        } else if (err.status === 403) { //403 - FORBIDDEN
-
-          alert('403 - tratar aqui - VOCESSS VAO TRATAR ESSES ERROSSS ');
-		  router.navigate(['/dashboard']);
-
+          if (!router.url.includes('/dashboard')) {
+            router.navigate(['/dashboard']);
+          }
         } else {
           console.error('HTTP error:', err);
         }
-		
-		
       } else {
         console.error('An error occurred:', err);
       }

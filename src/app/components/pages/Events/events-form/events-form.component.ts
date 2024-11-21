@@ -33,12 +33,6 @@ export class EventsFormComponent{
     if (id && !isNaN(+id)) {
       this.findById(+id);
     }
-    this.user.id = 1;
-    this.user.apelido = 'Josh';
-    this.user.senha = 'batata';
-    this.user.email = 'batata@gmail.com';
-    this.user.data_reg = '03/05/2005';
-    this.user.role = 'MODERADOR';
 
     this.findAllGames();
     

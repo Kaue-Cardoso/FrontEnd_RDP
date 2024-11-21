@@ -21,7 +21,7 @@ export const routes: Routes = [
   { path: '', redirectTo: 'main/dashboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'main', component: MainComponent, children: [
-      { path: 'dashboard', component: DashboardComponent },
+    { path: 'dashboard', component: DashboardComponent },
       { path: 'games', component: GamesListComponent },
       { path: 'games/cadastro', component: GamesFormsComponent },
       { path: 'games/edit/:id', component: GamesFormsComponent },

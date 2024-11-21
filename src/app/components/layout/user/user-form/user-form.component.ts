@@ -3,7 +3,6 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { isContext } from 'vm';
 import { UserService } from '../../../../service/user.service';
 import { User } from '../../../../model/user';
 
@@ -26,12 +25,12 @@ export class UserFormComponent {
   userService = inject(UserService);
 
   save() {
-    this.user.role = 'MODERADOR'
+    this.user.role = 'PLAYER'
     this.user.data_reg = this.dataFormatada;
     this.userService.save(this.user).subscribe({
       next: (mensagem) => {
         Swal.fire({
-          title: 'Guia criado com sucesso!',
+          title: 'Usuario criado com sucesso!',
           icon: 'success',
         }).then(() => {
           this.router.navigate(['/main/dashboard']);

@@ -6,7 +6,7 @@ export class User {
 	apelido!: string;
 	email!: string;
 	dc_id!: string;
-	senha!: string;
+	password!: string;
 	data_reg!: string;
 	role!: string;
     
