@@ -50,7 +50,7 @@
             >Comunidade</a
           >
         </li>
-        @if (!loginService.getToken) {
+        @if (!loginService.hasPermission("PLAYER") || !loginService.hasPermission("VETERANO") || !loginService.hasPermission("MODERADOR")) {
         <li class="nav-item d-flex align-items-center">
           <a class="nav-link titulos login" aria-current="page" href="login"
             >Login</a

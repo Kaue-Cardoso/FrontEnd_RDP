@@ -40,6 +40,10 @@ export class LoginService {
     return "";
   }
 
+  getNickname() {
+    let user = this.jwtDecode() as User
+  }
+
   hasPermission(role: string) {
     let user = this.jwtDecode() as User;
     if (user.role == role)
