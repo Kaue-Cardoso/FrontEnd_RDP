@@ -9,6 +9,7 @@ import { meuhttpInterceptor } from './auth/http-interceptor.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }),
-  provideRouter(routes), provideClientHydration(), provideHttpClient(withInterceptors([meuhttpInterceptor]), withFetch()),
+  provideRouter(routes), provideClientHydration(), provideHttpClient(withFetch()), provideHttpClient(withInterceptors([meuhttpInterceptor]),
+  ),
   provideAnimations(),]
 };

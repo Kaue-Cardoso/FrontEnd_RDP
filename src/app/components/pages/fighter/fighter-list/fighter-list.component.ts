@@ -2,10 +2,10 @@ import { Component, inject, Input, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FighterService } from '../../../../service/fighter.service';
-import { User } from '../../../../model/user';
 import { GameService } from '../../../../service/game.service';
 import { Game } from '../../../../model/game';
 import { Fighter } from '../../../../model/fighter';
+import { LoginService } from '../../../../auth/login.service';
 
 @Component({
   selector: 'app-fighter-list',
@@ -23,15 +23,14 @@ export class FighterListComponent implements OnInit {
     this.findGameBySigla(this.sigla)
   }
 
-  user: User = new User();
   game: Game = new Game();
 
   router = inject(Router);
   fighterService = inject(FighterService)
   gameService = inject(GameService)
+  loginService = inject(LoginService)
 
   constructor() {
-    this.user.role = 'MODERADOR'
   }
 
   characters: Fighter[] = [];

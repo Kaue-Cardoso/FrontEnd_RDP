@@ -16,7 +16,9 @@
                     <i class="fas fa-search"></i>
                 </button>
               </form>
-              <button class="btn ms-4 butao"> <a href="main/games/cadastro">Novo Jogo</a></button>
+              @if (loginService.hasPermission("MODERADOR") || loginService.hasPermission("VETERANO")) {
+                  <button class="btn ms-4 butao"> <a href="main/games/cadastro">Novo Jogo</a></button>
+              }
         </div>
     </div>
 

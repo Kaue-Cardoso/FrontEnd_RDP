@@ -3,7 +3,7 @@
     <div class="card-header">
       <div class="row align-items-center">
         <h5 class="text-center titulos col-6 fw-bolder mt-2">THE CHARACTERS</h5>
-        @if(user.role == 'MODERADOR') {
+        @if(loginService.hasPermission("MODERADOR") || loginService.hasPermission("VETERANO")) {
         <a
           class="btn btn-block col fs-6 titulos btnnew"
           routerLink="/main/fighter-form/{{sigla}}/new"
@@ -32,7 +32,7 @@
                 <a class="titulos" href="/main/fighter/{{ character.nome }}">{{
                   character.nome
                 }}</a>
-                @if (user.role == 'MODERADOR') {
+                @if (loginService.hasPermission("MODERADOR") || loginService.hasPermission("VETERANO")) {
                 <div>
                   <a
                     class="btn btn-sm edit mx-1"

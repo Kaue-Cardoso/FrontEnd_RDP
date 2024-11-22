@@ -1,6 +1,8 @@
 <div class="container-fluid mt-5" style="background-color: black; border-radius: 20px; opacity: 0.9;">
   <h2 class="text-center mb-4" style="color: white;">Eventos de Jogos</h2>
+  @if (loginService.hasPermission("MODERADOR") || loginService.hasPermission("VETERANO")) {
   <a class="btn btn-success" href="main/community/event-form/">Criar Novo Evento</a>
+  }
   <!-- Exibir eventos em cards usando @for -->
   <div class="row">
       @for (Evento of lista; track $index) {

@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { Evento } from '../../../../model/evento';
 import { Game } from '../../../../model/game';
 import { EventService } from '../../../../service/event.service';
+import { LoginService } from '../../../../auth/login.service';
 
 @Component({
   selector: 'app-events-list',
@@ -16,9 +17,9 @@ export class EventsListComponent {
   lista: Evento[] = [];
   game: Game[] = []
   eventService = inject(EventService);
+  loginService = inject(LoginService)
   constructor() {
     this.findAll();
-   
   }
 
   findAll() {

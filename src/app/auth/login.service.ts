@@ -16,7 +16,6 @@ export class LoginService {
 
   constructor() { }
 
-
   logar(login: Login): Observable<string> {
     return this.http.post<string>(this.API, login, {responseType: 'text' as 'json'});
   }

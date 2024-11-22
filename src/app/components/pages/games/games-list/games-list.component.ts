@@ -3,6 +3,7 @@ import { GameService } from '../../../../service/game.service';
 import Swal from 'sweetalert2';
 import { Game } from '../../../../model/game';
 import { Router } from '@angular/router';
+import { LoginService } from '../../../../auth/login.service';
 
 @Component({
   selector: 'app-games-list',
@@ -15,6 +16,7 @@ export class GamesListComponent {
 
   router = inject(Router);
   gameService = inject(GameService);
+  loginService = inject(LoginService);
 
   constructor(){
     this.findAllGames();
