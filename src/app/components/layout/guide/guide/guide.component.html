@@ -1,0 +1,195 @@
+<div class="card m-4">
+    <div class="row card-body col-12">
+      <div class="col-1"></div>
+      <div class="col-7">
+        <!-- overview -->
+  
+        <div class="card rounded border border-2 overview">
+          <div class="card-header mt-2 text-center">
+            <h5 class="titulos fw-bolder">{{guide.titulo}}</h5>
+          </div>
+          <div class="card-body">
+            <div class="resume">
+              <p class="afacad">
+                {{ guide.descricao }}
+              </p>
+            </div>
+            <div class="row">
+              <div class="col-6 border">
+                <div class="text-center titulos border-bottom border-success p-2">
+                  STRENGTHS
+                </div>
+                <div>
+                  <!-- {{ character.strengths }} -->
+                </div>
+              </div>
+              <div class="col-6 border">
+                <div class="text-center titulos border-bottom border-danger p-2">
+                  WEAKNESSES
+                </div>
+                <div>
+                  <!-- {{ character.weaknesses }} -->
+                </div>
+              </div>
+            </div>
+            <hr />
+            <div class="mt-2">
+              <h5 class="titulos text-center">Descrição</h5>
+              <p class="afacad">
+                {{guide.descricao}}
+              </p>
+            </div>
+          </div>
+        </div>
+  
+        <!-- notable players -->
+  
+        <div class="card rounded border border-2 overview mt-2">
+          <div class="p-3">
+            <h5 class="titulos text-center fw-bolder">Notable Players</h5>
+            <table class="table border text-center align-middle">
+              <thead class="titulos">
+                <tr>
+                  <th class="col-2">Usual Color</th>
+                  <th class="col-2">Name</th>
+                  <th class="col-2">Discord ID</th>
+                  <th class="col-2">Region</th>
+                  <th class="col-2">Status</th>
+                  <th class="col-2">Handles/Links</th>
+                </tr>
+              </thead>
+              <tbody class="afacad">
+                <tr>
+                  <th scope="row" class="p-0">
+                    <img
+                      src="assets/fighter/colors/BBCF_Kokonoe_color_8.png"
+                      width="44"
+                      height="100"
+                    />
+                  </th>
+                  <td><a href="https://x.com/kisaltofgc">Kisalto</a></td>
+                  <td>Kisaltoo</td>
+                  <td>Brasil</td>
+                  <td>Ativo</td>
+                  <td>
+                    <a href="https://replaytheater.app/?game=unib&p1=kisalto"
+                      >Replay Theater</a
+                    >
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row" class="p-0">
+                    <img
+                      src="assets/fighter/colors/BBCF_Kokonoe_color_8.png"
+                      width="44"
+                      height="100"
+                    />
+                  </th>
+                  <td><a href="https://x.com/kisaltofgc">Kisalto</a></td>
+                  <td>Kisaltoo</td>
+                  <td>Brasil</td>
+                  <td>Ativo</td>
+                  <td>
+                    <a href="https://replaytheater.app/?game=unib&p1=kisalto"
+                      >Replay Theater</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+  
+      <!-- infobox -->
+  
+      <div class="col-3 me-4">
+        <div class="card rounded border border-2 infobox">
+          <div class="card-header mt-2 text-center">
+            <h1 class="fw-bolder titulos">{{ guide.fighter.nome }}</h1>
+          </div>
+          <div class="card-body">
+            <table class="col-12">
+              <tbody>
+                <tr>
+                  <td>
+                    <img
+                      src="assets\fighter\portraits\{{ guide.game.sigla }}_{{
+                        guide.fighter.nome
+                      }}_Portrait.png"
+                      width="100%"
+                    />
+                  </td>
+                </tr>
+                <tr class="border-top fw-bolder titulos">
+                  <td>Health</td>
+                </tr>
+                <tr class="text-end afacad">
+                  <td>10,500</td>
+                </tr>
+                <tr class="border-top fw-bolder titulos">
+                  <td>Prejump</td>
+                </tr>
+                <tr class="text-end afacad">
+                  <td>4F</td>
+                </tr>
+                <tr class="border-top fw-bolder titulos">
+                  <td>Backdash</td>
+                </tr>
+                <tr class="text-end afacad">
+                  <td>22F (1~7 Inv All, 2~13 airborne)</td>
+                </tr>
+                <tr class="border-top fw-bolder titulos">
+                  <td>Unique Movement Options</td>
+                </tr>
+                <tr class="text-end afacad">
+                  <td>Gravitons</td>
+                </tr>
+                <tr class="border-top fw-bolder titulos">
+                  <td>Fastest Attack</td>
+                </tr>
+                <tr class="text-end afacad">
+                  <td>5A (6F)</td>
+                </tr>
+                <tr class="border-top fw-bolder titulos">
+                  <td>Reversals</td>
+                </tr>
+                <tr class="text-end afacad">
+                  <td>214214A/B/C (10F/13F/16F)</td>
+                </tr>
+                <tr class="border-top fw-bolder titulos">
+                  <td>Fatal Starters</td>
+                </tr>
+                <tr class="text-end afacad">
+                  <td>2C - 6C - j.2C</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-2">
+        <div class="col-1"></div>
+        <div class="col-10 card rounded border border-2 overview">
+          <div class="card-header mt-2">
+            <h5 class="titulos text-center fw-bolder">COLORS</h5>
+          </div>
+          <div class="card-body row">
+            <div class="col-1"></div>
+            <div class="row col-10">
+              @for (color of colors; track $index) {
+              <div class="col-2 border p-2">
+                <p class="titulos border-bottom text-center">Color {{ color }}</p>
+                <!-- <img
+                  src="assets/fighter/colors/{{ character.game.sigla }}_{{ character.nome }}_color_{{ color }}.png"
+                  width="100%"
+                /> -->
+              </div>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
