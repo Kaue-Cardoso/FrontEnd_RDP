@@ -1,75 +1,98 @@
-<div class="container mt-5 rounded col-6">
-  <div class="row">
-    <div class="col-1"></div>
-    <div class="col-10 mt-2">
-          <form #formulario="ngForm">
-            <div class="card-header">
-              <h2 class="text-center titulos">{{ tituloComponente }}</h2>
-            </div>
-
-            <div class="row mt-4">
-              <div class="form-outline form-white mb-2 col-9">
-                <mdb-form-control class="mb-4">
-                  <input [(ngModel)]="guide.titulo" name="titulo" mdbInput type="text" id="form4Example1"
-                    class="form-control form-control-lg" />
-                  <label mdbLabel class="form-label" for="form4Example1">Título</label>
-                </mdb-form-control>
+  <div class="container mt-5 rounded col-6">
+    <div class="row">
+      <div class="col-1"></div>
+      <div class="col-10 mt-2">
+            <form #formulario="ngForm">
+              <div class="card-header">
+                <h2 class="text-center titulos">{{ tituloComponente }}</h2>
               </div>
 
-              <div class="form-outline form-white mb-2 col-3 c2">
-                <mdb-form-control class="mb-4">
-                  <input [(ngModel)]="guide.tipo" name="tipo" mdbInput type="email" id="form4Example2"
-                    class="form-control form-control-lg" />
-                  <label mdbLabel class="form-label" for="form4Example2">Tipo</label>
-                </mdb-form-control>
-              </div>
+              <div class="row mt-4">
+                <div class="form-outline form-white mb-2 col-9">
+                  <mdb-form-control class="mb-4">
+                    <input [(ngModel)]="guide.titulo" name="titulo" mdbInput type="text" id="form4Example1"
+                      class="form-control form-control-lg" />
+                    <label mdbLabel class="form-label" for="form4Example1">Título</label>
+                  </mdb-form-control>
+                </div>
 
-              <div class="form-outline form-white mb-2">
-                <mdb-form-control class="mb-4">
-                  <input [(ngModel)]="guide.link" name="tipo" mdbInput type="email" id="form4Example5"
-                    class="form-control form-control-lg" />
-                  <label mdbLabel class="form-label" for="form4Example3">Link</label>
-                </mdb-form-control>
-              </div>
+                <div class="form-outline form-white mb-2 col-3 c2">
+                  <mdb-form-control class="mb-4">
+                    <input [(ngModel)]="guide.tipo" name="tipo" mdbInput type="email" id="form4Example2"
+                      class="form-control form-control-lg" />
+                    <label mdbLabel class="form-label" for="form4Example2">Tipo</label>
+                  </mdb-form-control>
+                </div>
 
-              <div class="form-outline form-white mb-2">
-                <mdb-form-control class="mb-4">
-                  <textarea [(ngModel)]="guide.descricao" name="link" mdbInput class="form-control" id="form4Example5"
-                    rows="5"></textarea>
-                  <label mdbLabel class="form-label" for="form4Example3">Descrição</label>
-                </mdb-form-control>
-              </div>
-              
-              <div style="display: flex; justify-content: space-between; padding-inline: 5vh" class="mb-4">
+                <div class="form-outline form-white mb-2">
+                  <mdb-form-control class="mb-4">
+                    <input [(ngModel)]="guide.link" name="tipo" mdbInput type="email" id="form4Example5"
+                      class="form-control form-control-lg" />
+                    <label mdbLabel class="form-label" for="form4Example3">Link</label>
+                  </mdb-form-control>
+                </div>
+
+                <div class="form-outline form-white mb-2">
+                  <mdb-form-control class="mb-4">
+                    <textarea [(ngModel)]="guide.descricao" name="link" mdbInput class="form-control" id="form4Example5"
+                      rows="5"></textarea>
+                    <label mdbLabel class="form-label" for="form4Example3">Descrição</label>
+                  </mdb-form-control>
+                </div>
                 
-                @if (guide.game == null) {
-                  <button class="btn saveGuia mb-4" (click)="AbreGame()">Game</button>
-                }@else {
-                  <span>Game: {{guide.game.nome}}</span>
+                <div style="display: flex; justify-content: space-between; padding-inline: 5vh" class="mb-4">
+                  
+                  @if (guide.game == null) {
+                    <button class="btn saveGuia mb-4" (click)="AbreGame()">Game</button>
+                  }@else {
+                    <span>Game: {{guide.game.nome}}</span>
 
-                }
+                  }
 
-                @if (guide.game != null && guide.fighter == null) {
-                  <button (click)="AbreFighter()" class="btn saveGuia mb-4">Fighter</button>
-                }
-                @if(guide.fighter != null){
-                  <span>Fighter: {{guide.fighter.nome}}</span>
-                }
-                
+                  @if (guide.game != null && guide.fighter == null) {
+                    <button (click)="AbreFighter()" class="btn saveGuia mb-4">Fighter</button>
+                  }
+                  @if(guide.fighter != null){
+                    <span>Fighter: {{guide.fighter.nome}}</span>
+                  }
+                  
+                </div>
               </div>
-            </div>
 
-            <button (click)="save()" [disabled]="!formulario.valid" type="button" class="btn btn-block saveGuia mb-4">Criar</button>
-          </form>
+              <button (click)="save()" [disabled]="!formulario.valid" type="button" class="btn btn-block saveGuia mb-4">Criar</button>
+            </form>
 
+          </div>
         </div>
       </div>
-    </div>
 
-<ng-template #listaFighters>
+  <ng-template #listaFighters>
+
+      <div class="modal-header">
+          <h5 class="modal-title" style="color: rgb(119, 119, 119);" id="exampleModalLabel">Fighter</h5>
+          <button
+            type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modalRef.close()"
+          ></button>
+        </div>
+        <div class="modal-body">
+
+          <app-fighter-list [modalMode]="modalMode" [sigla]="sigla" (fighter)="SelecionarFighter($event)" ></app-fighter-list>
+
+        </div>
+        <div class="modal-footer">
+          
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+
+  </ng-template>
+
+  <ng-template #listaGames>
 
     <div class="modal-header">
-        <h5 class="modal-title" style="color: rgb(119, 119, 119);" id="exampleModalLabel">Fighter</h5>
+        <h5 class="modal-title" style="color: rgb(119, 119, 119);" id="exampleModalLabel">Games</h5>
         <button
           type="button"
           class="btn-close"
@@ -79,7 +102,7 @@
       </div>
       <div class="modal-body">
 
-        <app-fighter-list [modalMode]="modalMode" [sigla]="sigla" (fighter)="SelecionarFighter($event)" ></app-fighter-list>
+        <app-games-list [modalMode]="modalMode" (gameSel)="SelecionarGame($event)"></app-games-list>
 
       </div>
       <div class="modal-footer">
@@ -87,27 +110,4 @@
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
 
-</ng-template>
-
-<ng-template #listaGames>
-
-  <div class="modal-header">
-      <h5 class="modal-title" style="color: rgb(119, 119, 119);" id="exampleModalLabel">Games</h5>
-      <button
-        type="button"
-        class="btn-close"
-        aria-label="Close"
-        (click)="modalRef.close()"
-      ></button>
-    </div>
-    <div class="modal-body">
-
-      <app-games-list [modalMode]="modalMode" (gameSel)="SelecionarGame($event)"></app-games-list>
-
-    </div>
-    <div class="modal-footer">
-      
-      <button type="button" class="btn btn-primary">Save changes</button>
-    </div>
-
-</ng-template>
+  </ng-template>
