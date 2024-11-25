@@ -4,6 +4,7 @@ import Swal from 'sweetalert2';
 import { MdbModalRef, } from 'mdb-angular-ui-kit/modal';
 import { Guide } from '../../../../model/guide';
 import { GuideService } from '../../../../service/guide.service';
+import { LoginService } from '../../../../auth/login.service';
 
 
 
@@ -17,6 +18,7 @@ import { GuideService } from '../../../../service/guide.service';
 export class GuideListComponent {
   lista: Guide[] = [];
   guideService =  inject (GuideService);
+  loginService = inject(LoginService)
   router = inject(Router);
 
   @ViewChild('selecionaFighter') selecionaFighter!: TemplateRef<any>;

@@ -1,4 +1,4 @@
-import { Component, inject, TemplateRef, ViewChild,} from '@angular/core';
+import { Component, inject, TemplateRef, ViewChild, } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { MdbModalModule, MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
@@ -20,22 +20,23 @@ import { UserService } from '../../../../service/user.service';
   styleUrl: './guide-form.component.scss'
 })
 export class GuideFormComponent {
-  modalMode : boolean = true;
+  modalMode: boolean = true;
   guide: Guide = new Guide();
   router = inject(Router);
-  character : Fighter = new Fighter();
-  jogo : Game = new Game();
-  sigla! : string;
+  character: Fighter = new Fighter();
+  jogo: Game = new Game();
+  sigla!: string;
   tituloComponente = "Criar Novo Guia"
 
   guideService = inject(GuideService);
   userService = inject(UserService);
 
   modalService = inject(MdbModalService);
-  @ViewChild ("listaFighters") listaFighters!: TemplateRef<any>;
-  @ViewChild ("listaGames") listaGames!: TemplateRef<any>;
+  @ViewChild('listaFighters') listaFighters!: TemplateRef<any>;
+  @ViewChild('listaGames') listaGames!: TemplateRef<any>;
+
   modalRef!: MdbModalRef<any>;
-  constructor(){
+  constructor() {
     this.findUserId();
   }
 
@@ -52,7 +53,7 @@ export class GuideFormComponent {
     })
   }
 
-  save(){
+  save() {
     this.guideService.save(this.guide).subscribe({
       next: mensagem => {
         Swal.fire({
@@ -70,27 +71,40 @@ export class GuideFormComponent {
     })
   }
 
-  AbreFighter(){
+  AbreFighter() {
     this.modalMode = true;
-    this.modalService.open(this.listaFighters);
+    this.modalRef = this.modalService.open(this.listaFighters);
   }
 
-  AbreGame(){
+  AbreGame() {
     this.modalMode = true;
-    this.modalService.open(this.listaGames);
+    this.modalRef = this.modalService.open(this.listaGames);
   }
-  
-  SelecionarGame(game : Game){
+
+
+  SelecionarGame(game: Game) {
     this.guide.game = game;
     this.sigla = game.sigla;
-    this.modalRef.close();
+
+    if (this.modalRef) {
+      this.modalRef.close();
+    } else {
+      console.error('modalRef não inicializado!');
+    }
   }
 
-  SelecionarFighter(fighter : Fighter){
+
+  SelecionarFighter(fighter: Fighter) {
     this.guide.fighter = fighter;
-    this.modalRef.close();
+
+    if (this.modalRef) {
+      this.modalRef.close();
+    } else {
+      console.error('modalRef não inicializado!');
+    }
   }
-  
-  
+
+
+
 
 }

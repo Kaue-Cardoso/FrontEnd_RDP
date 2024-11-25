@@ -6,6 +6,7 @@ import { GameService } from '../../../../service/game.service';
 import { Game } from '../../../../model/game';
 import { Fighter } from '../../../../model/fighter';
 import { LoginService } from '../../../../auth/login.service';
+import { User } from '../../../../model/user';
 
 @Component({
   selector: 'app-fighter-list',
