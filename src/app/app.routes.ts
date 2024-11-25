@@ -15,6 +15,7 @@ import { GuideFormComponent } from './components/layout/guide/guide-form/guide-f
 import { GuideListComponent } from './components/layout/guide/guide-list/guide-list.component';
 import { UserFormComponent } from './components/layout/user/user-form/user-form.component';
 import { UserListComponent } from './components/layout/user/user-list/user-list.component';
+import { GuideComponent } from './components/layout/guide/guide/guide.component';
 import { loginGuard } from './auth/login.guard';
 
 export const routes: Routes = [
