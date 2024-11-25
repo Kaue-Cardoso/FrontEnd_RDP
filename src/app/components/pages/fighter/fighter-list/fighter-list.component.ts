@@ -1,5 +1,5 @@
-import { Component, inject, Input, OnInit } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FighterService } from '../../../../service/fighter.service';
 import { GameService } from '../../../../service/game.service';
@@ -15,9 +15,9 @@ import { LoginService } from '../../../../auth/login.service';
   styleUrl: './fighter-list.component.scss'
 })
 export class FighterListComponent implements OnInit {
-
+  @Input() modalMode! : boolean;
   @Input() sigla!: string;
-  @Input("fighter") fighter : Fighter = new Fighter;
+  @Output("fighter") fighter = new EventEmitter<Fighter>();
 
   ngOnInit(): void {
     this.findGameBySigla(this.sigla)
@@ -92,4 +92,7 @@ export class FighterListComponent implements OnInit {
     });
   }
 
+  retorno(character: Fighter){
+    this.fighter.emit(character);
+  }
 }

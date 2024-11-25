@@ -8,7 +8,7 @@ export class Guide {
   tipo!: string;
   descricao!: string;
   link!: string;
-  data_cr!: Date;
+  data_cr!: String;
   likes: number = 0;
   dislikes: number = 0;
   

@@ -26,11 +26,22 @@
     <div class="d-flex justify-content-center row gx-0">
         @for (game of games; track $index){
         <div class="col-md-6">
-            <div class="card-game" (click)="goToGame(game.sigla)" style="background-image: url(/assets/background/{{game.sigla}}.png);">
-                <!-- <div class="card-style"> -->
-                    <a class="card-style">{{game.nome}}</a>
-                <!-- </div> -->
-            </div>
+            @if (modalMode == true) {
+                
+                <div class="card-game" style="background-image: url(/assets/background/{{game.sigla}}.png);">
+                    <button class="btn ms-4 butao" (click)="selecionarGame(game)">Selecionar</button>
+                    <!-- <div class="card-style"> -->
+                        <a class="card-style">{{game.nome}}</a>
+                    <!-- </div> -->
+                </div>
+            }@else {
+                <div class="card-game" (click)="goToGame(game.sigla)" style="background-image: url(/assets/background/{{game.sigla}}.png);">
+                    <!-- <div class="card-style"> -->
+                        <a class="card-style">{{game.nome}}</a>
+                    <!-- </div> -->
+                </div>
+            }
+            
         </div>
         }
     </div>
