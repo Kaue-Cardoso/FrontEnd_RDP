@@ -22,7 +22,7 @@ export class FighterListComponent implements OnInit {
   ngOnInit(): void {
     this.findGameBySigla(this.sigla)
   }
-
+  user: User = new User();
   game: Game = new Game();
 
   router = inject(Router);
