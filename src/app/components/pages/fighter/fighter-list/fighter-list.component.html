@@ -37,8 +37,7 @@
                 <a class="titulos" href="/main/fighter/{{ character.nome }}">{{
                   character.nome
                 }}</a>
-
-                @if (user.isMod == true) {
+                @if (loginService.hasPermission("MODERADOR") || loginService.hasPermission("VETERANO")) {
                 <div>
                   <a
                     class="btn btn-sm btn-light me-1"
