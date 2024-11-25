@@ -3,6 +3,7 @@ import { GameService } from '../../../../service/game.service';
 import { Router } from '@angular/router';
 import { Game } from '../../../../model/game';
 import { MdbModalRef,} from 'mdb-angular-ui-kit/modal';
+import { LoginService } from '../../../../auth/login.service';
 
 @Component({
   selector: 'app-games-list',
