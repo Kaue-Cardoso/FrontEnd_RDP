@@ -3,6 +3,8 @@ import { GameService } from '../../../../service/game.service';
 import Swal from 'sweetalert2';
 import { Game } from '../../../../model/game';
 import { Router } from '@angular/router';
+import { Game } from '../../../../model/game';
+import { MdbModalRef,} from 'mdb-angular-ui-kit/modal';
 import { LoginService } from '../../../../auth/login.service';
 
 @Component({
