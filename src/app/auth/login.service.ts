@@ -41,7 +41,8 @@ export class LoginService {
   }
 
   getNickname() {
-    let user = this.jwtDecode() as User
+    let user = this.jwtDecode() as User;
+    
   }
 
   hasPermission(role: string) {

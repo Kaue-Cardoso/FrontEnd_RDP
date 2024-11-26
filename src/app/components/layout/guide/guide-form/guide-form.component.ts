@@ -11,6 +11,8 @@ import { Fighter } from '../../../../model/fighter';
 import { Game } from '../../../../model/game';
 import Swal from 'sweetalert2';
 import { UserService } from '../../../../service/user.service';
+import { LoginService } from '../../../../auth/login.service';
+import { User } from '../../../../model/user';
 
 @Component({
   selector: 'app-guide-form',
@@ -30,6 +32,7 @@ export class GuideFormComponent {
 
   guideService = inject(GuideService);
   userService = inject(UserService);
+  loginService = inject(LoginService);
 
   modalService = inject(MdbModalService);
   @ViewChild('listaFighters') listaFighters!: TemplateRef<any>;
@@ -37,21 +40,21 @@ export class GuideFormComponent {
 
   modalRef!: MdbModalRef<any>;
   constructor() {
-    this.findUserId();
+    this.guide.user = this.loginService.jwtDecode() as User;
   }
 
-  findUserId() {
-    this.userService.findById(1).subscribe({
-      next: usr => {
-        this.guide.user = usr;
-      },
-      error: erro => {
-        console.error(erro);
-        alert(erro.error)
-        console.log(this.guide);
-      }
-    })
-  }
+  // findUserId(id : number) {
+  //   this.userService.findById(id).subscribe({
+  //     next: usr => {
+  //       this.guide.user = usr;
+  //     },
+  //     error: erro => {
+  //       console.error(erro);
+  //       alert(erro.error)
+  //       console.log(this.guide);
+  //     }
+  //   })
+  // }
 
   save() {
     this.guideService.save(this.guide).subscribe({

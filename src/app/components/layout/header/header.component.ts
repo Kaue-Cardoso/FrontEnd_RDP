@@ -3,6 +3,7 @@ import { MdbDropdownDirective, MdbDropdownModule } from 'mdb-angular-ui-kit/drop
 import { MdbRippleModule } from 'mdb-angular-ui-kit/ripple';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { LoginService } from '../../../auth/login.service';
+import { User } from '../../../model/user';
 
 @Component({
   selector: 'app-header',
@@ -12,8 +13,12 @@ import { LoginService } from '../../../auth/login.service';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  loginAtual : User = new User();
+  loginService = inject(LoginService);
 
-  loginService = inject(LoginService)
+  constructor(){
+    this.loginAtual = this.loginService.jwtDecode() as User;
+  }
 
   @ViewChild('dropdown') dropdown!: MdbDropdownDirective;
 
