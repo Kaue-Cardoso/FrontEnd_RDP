@@ -1,42 +1,44 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, throwError, EMPTY } from 'rxjs';
+import { catchError, throwError } from 'rxjs';
 
 export const meuhttpInterceptor: HttpInterceptorFn = (request, next) => {
-  const router = inject(Router);
 
-  try {
-    const token = localStorage.getItem('token');
+  let router = inject(Router);
 
-    if (token && !router.url.includes('/login')) {
-      request = request.clone({
-        setHeaders: { Authorization: 'Bearer ' + token },
-      });
-    }
-  } catch (error) {
-    console.error('Erro ao acessar o localStorage:', error);
-    router.navigate(['/main/dashboard']);
-    return EMPTY; 
+  let token = localStorage.getItem('token');
+  if (token && !router.url.includes('/login')) {
+    request = request.clone({
+      setHeaders: { Authorization: 'Bearer ' + token },
+    });
   }
 
   return next(request).pipe(
     catchError((err: any) => {
       if (err instanceof HttpErrorResponse) {
-        if (err.status === 401) {
-          alert('401 - Não autorizado. Redirecionando...');
-          router.navigate(['/main/dashboard']);
-        } else if (err.status === 403) {
-          alert('403 - Acesso proibido. Redirecionando...');
-          router.navigate(['/main/dashboard']);
+	  
+	  
+        if (err.status === 401) { //401 - NON AUTHORIZED
+
+          alert('401 - tratar aqui - VOCESSS VAO TRATAR ESSES ERROSSS ');
+          router.navigate(['/login']);
+
+
+        } else if (err.status === 403) { //403 - FORBIDDEN
+
+          alert('403 - tratar aqui - VOCESSS VAO TRATAR ESSES ERROSSS ');
+		  router.navigate(['/login']);
+
         } else {
-          console.error('Erro HTTP:', err);
+          console.error('HTTP error:', err);
         }
+		
+		
       } else {
-        console.error('Erro não identificado:', err);
+        console.error('An error occurred:', err);
       }
 
-      // Retorna um fluxo vazio para evitar carregamento infinito
       return throwError(() => err);
     })
   );

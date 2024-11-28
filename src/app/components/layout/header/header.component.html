@@ -35,7 +35,7 @@
         </li>
         } @else {
           <li class="nav-item d-flex align-items-center">
-            <span href="login">Bem-vindo <a href="login" class="username">{{ loginAtual.apelido }}</a></span>
+            <span href="login" (click)="sair()" >Bem-vindo<a href="login" class="username">{{ loginAtual.apelido }}</a></span>
           </li>
         }
 

@@ -30,4 +30,8 @@ export class HeaderComponent {
     this.dropdown.hide();
   }
 
+  sair() {
+    this.loginService.removerToken()
+  }
+
 }
