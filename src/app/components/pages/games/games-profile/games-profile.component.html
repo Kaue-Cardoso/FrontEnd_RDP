@@ -6,23 +6,13 @@
           <li class="nav-item">
             <a class="nav-link corzinha" aria-current="page">Inicio</a>
           </li>
+
           <li class="nav-item">
-  
-              <div class="container-fluid">
-                <button class="navbar-toggler" type="button" (click)="externalContent.toggle()">
-                  Guias<i class="mx-1 align-items-end fas fa-angle-down"></i>
-                </button>
-              </div>
-            <div class="collapse" mdbCollapse #externalContent="mdbCollapse">
-              <div class="p-4">
-                <a class="nav-link corzinha" aria-current="page" href="#">Adms</a>
-                <a class="nav-link corzinha" aria-current="page" href="#">Usuarios</a>
-              </div>
-            </div>
-  
-          </li>
-          <li class="nav-item">
+            <a class="nav-link corzinha" (click)="guia()"  aria-current="page">Guias</a>
             
+          </li>
+
+          <li class="nav-item">  
             <div class="container-fluid">
               <button class="navbar-toggler" type="button" (click)="externalContent1.toggle()">
                 Eventos<i class="mx-1 align-items-end fas fa-angle-down"></i>

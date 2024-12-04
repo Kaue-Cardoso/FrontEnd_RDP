@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { GameService } from '../../../../service/game.service';
 import { Game } from '../../../../model/game';
@@ -16,6 +16,8 @@ export class GamesProfileComponent {
 
   rotaAtual = inject(ActivatedRoute);
   gameService = inject(GameService);
+
+  router = inject(Router);
 
   game: Game = new Game();
 
@@ -36,4 +38,12 @@ export class GamesProfileComponent {
     })
   }
 
+  guia() {
+    this.router.navigate(['main/guide-list']);
+    };
 }
+
+
+
+
+
