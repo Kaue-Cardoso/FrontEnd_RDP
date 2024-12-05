@@ -41,10 +41,9 @@ export class GamesProfileComponent {
         alert('Jogo Não Encontrado');      }
     })
   }
-
-  guia() {
-    this.router.navigate(['main/guide-list']);
-    };
+  irParaGuias(): void {
+    this.router.navigate(['/main/guides', this.sigla]);
+  }
 }
 
 

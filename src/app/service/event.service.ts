@@ -42,8 +42,9 @@ export class EventService {
   getAllEvents(): Observable<Evento[]> {
     return this.http.get<Evento[]>(this.API + "/findAll");
   }
-  getAllEventsByGames(): Observable<Evento[]> {
-    return this.http.get<Evento[]>(this.API + "/findAllByGame");
-  }
+  getAllEventsByGames(sigla: string): Observable<Evento[]> {
+    return this.http.get<Evento[]>(this.API + "/findAllByGame/"+sigla);
+  }
+
 
 }

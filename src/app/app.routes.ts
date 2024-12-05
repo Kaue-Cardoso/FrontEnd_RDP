@@ -32,7 +32,7 @@ export const routes: Routes = [
       { path: 'fighter/:name', component: FighterComponent },
       { path: 'fighter-form/edit/:name', component: FighterFormComponent },
       { path: 'guide-form', component: GuideFormComponent },
-      { path: 'guide-list', component: GuideListComponent },
+      { path: 'guides/:sigla', component: GuideListComponent },
       { path: 'guide/:id', component: GuideComponent },
       { path: 'user-form', component: UserFormComponent },
       { path: 'user-list', component: UserListComponent },

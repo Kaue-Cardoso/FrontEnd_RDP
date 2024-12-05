@@ -1,5 +1,5 @@
 import { Component, inject, TemplateRef, ViewChild, viewChild } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { MdbModalRef, } from 'mdb-angular-ui-kit/modal';
 import { Guide } from '../../../../model/guide';
@@ -17,15 +17,20 @@ import { LoginService } from '../../../../auth/login.service';
 })
 export class GuideListComponent {
   lista: Guide[] = [];
+  sigla: string;
+
   guideService =  inject (GuideService);
   loginService = inject(LoginService)
   router = inject(Router);
+  rotaAtual = inject(ActivatedRoute);
 
+  
   @ViewChild('selecionaFighter') selecionaFighter!: TemplateRef<any>;
   modalRef!: MdbModalRef<any>;
 
   constructor(){
-    this.findAll();
+    this.sigla = this.rotaAtual.snapshot.params['sigla'];
+    this.findAllByGame(this.sigla);
   }
 
   goToGuide(id: number){
@@ -33,25 +38,20 @@ export class GuideListComponent {
   }
 
 
-  findAll(){
-    this.guideService.findAll().subscribe({
-      next: lista => { 
+  findAllByGame(sigla: string): void {
+    this.guideService.getAllGuidesByGames(sigla).subscribe({
+      next: (lista) => {
         this.lista = lista;
       },
-      error: erro => { 
-        Swal.fire({
-          title: erro,
-          icon: 'error',
-          confirmButtonText: 'Ok',
-        });
-      }
+      error: (erro) => {
+        console.error('Erro ao carregar guias:', erro);
+      },
     });
-  
   }
   
-  edit(id: number): void {
-    this.router.navigate([`admin/guide/${id}`]);
-  }
+  // edit(id: number): void {
+  //   this.router.navigate([`admin/guide/${id}`]);
+  // }
   
   deletar(guide: Guide) {
     Swal.fire({
@@ -71,7 +71,6 @@ export class GuideListComponent {
               icon: 'success',
               confirmButtonText: 'Ok'
             });
-            this.findAll(); // Atualiza a lista após deletar
           },
           error: erro => {
             Swal.fire({
