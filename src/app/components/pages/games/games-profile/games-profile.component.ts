@@ -23,6 +23,10 @@ export class GamesProfileComponent {
 
   sigla: string;
 
+  voltarAoInicio(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
   constructor() {
     this.sigla = this.rotaAtual.snapshot.params['sigla']
     this.findBySigla(this.sigla);

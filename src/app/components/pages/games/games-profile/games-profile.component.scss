@@ -1,6 +1,25 @@
 *{
     color: var(--branco);
 }
+@media (max-width: 576px) {
+    .tamanho{
+        width: 75%;
+    }
+    .card-body{
+        padding: 0;
+    }
+    .card-footer{
+        padding: 0;
+    }
+    .sidemenu{
+    margin-top: 5px;
+    }
+}
+@media (min-width: 577px) {
+    .tamanho{
+        width: 100%;
+    }
+}
 .config{
     margin: 0;
     padding: 5vh 0;
@@ -14,9 +33,6 @@
     background-color: rgba(43, 42, 42, 0.8);
     border-radius: 0;
     // border: ;
-}
-.sidemenu{
-    position: static; /* Ou "static" para rolar junto com a tela */
 }
 .grade{
     border: 8px solid transparent; /* Define a largura da borda */
