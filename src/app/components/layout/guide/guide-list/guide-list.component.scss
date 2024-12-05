@@ -1,11 +1,8 @@
 .config{
     margin: 0;
     padding: 5vh 0;
-    // background-color: var(--preto);
     background-size: cover;
     color: var(--laranja);
-
-    // height: 100%;
 }
 form{
     color: var(--laranja);
@@ -24,12 +21,10 @@ form{
 }
 .butao:hover{
     border: 1px solid var(--branco);
-
     a{
         color: var(--branco);
     }
 }
-
 .configTable{
     padding: 0 10vw;
 }
