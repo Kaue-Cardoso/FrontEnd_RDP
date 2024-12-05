@@ -34,4 +34,8 @@ export class GuideService {
   delete(id:number) : Observable<string>{
     return this.http.delete<string>(this.API+"/delete/"+id);
   }
+
+  getAllGuidesByGames(): Observable<Guide[]> {
+    return this.http.get<Guide[]>(this.API + "/findAllByGame");
+  }
 }
