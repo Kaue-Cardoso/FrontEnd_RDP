@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Fighter } from '../model/fighter';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class FighterService {
 
   http = inject(HttpClient)
   
-  API = "http://localhost:8080/api/rdp/fighter"
+  API = environment.SERVIDOR+"api/rdp/fighter"
 
   constructor() { }
 

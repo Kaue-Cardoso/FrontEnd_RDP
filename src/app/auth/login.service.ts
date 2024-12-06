@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { jwtDecode, JwtPayload } from "jwt-decode";
 import { Login } from '../model/login';
 import { User } from '../model/user';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ import { User } from '../model/user';
 export class LoginService {
 
   http = inject(HttpClient);
-  API = "http://localhost:8080/api/rdp/login/logar";
+  API = environment.SERVIDOR+"api/rdp/login/logar"
+
 
 
   constructor() { }
@@ -42,7 +44,6 @@ export class LoginService {
 
   getNickname() {
     let user = this.jwtDecode() as User;
-    
   }
 
   hasPermission(role: string) {

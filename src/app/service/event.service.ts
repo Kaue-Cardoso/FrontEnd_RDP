@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Evento } from '../model/evento';
 import { Game } from '../model/game';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,8 @@ export class EventService {
 
   http = inject(HttpClient)
 
-  API = "http://localhost:8080/api/rdp/event"
+  API = environment.SERVIDOR+"api/rdp/event"
+
 
   constructor() { }
 
