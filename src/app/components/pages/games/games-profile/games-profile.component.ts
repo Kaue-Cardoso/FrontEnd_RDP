@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MdbCollapseModule } from 'mdb-angular-ui-kit/collapse';
 import { GameService } from '../../../../service/game.service';
 import { Game } from '../../../../model/game';
@@ -17,9 +17,15 @@ export class GamesProfileComponent {
   rotaAtual = inject(ActivatedRoute);
   gameService = inject(GameService);
 
+  router = inject(Router);
+
   game: Game = new Game();
 
   sigla: string;
+
+  voltarAoInicio(): void {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   constructor() {
     this.sigla = this.rotaAtual.snapshot.params['sigla']
@@ -35,5 +41,17 @@ export class GamesProfileComponent {
         alert('Jogo Não Encontrado');      }
     })
   }
+  irParaGuias(): void {
+    this.router.navigate(['/main/guides', this.sigla]);
+  }
+  irParaEventos(): void {
+    this.router.navigate(['/main/community/event-list']);
+  }
+  
 
 }
+
+
+
+
+

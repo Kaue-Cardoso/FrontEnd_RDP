@@ -1,4 +1,4 @@
-<div class="card m-4">
+<div class="card grade container my-4">
     <div class="row card-body col-12">
       <div class="col-1"></div>
       <div class="col-7">
@@ -46,55 +46,17 @@
   
         <div class="card rounded border border-2 overview mt-2">
           <div class="p-3">
-            <h5 class="titulos text-center fw-bolder">Notable Players</h5>
+            <h5 class="titulos text-center fw-bolder">Combo</h5>
             <table class="table border text-center align-middle">
-              <thead class="titulos">
-                <tr>
-                  <th class="col-2">Usual Color</th>
-                  <th class="col-2">Name</th>
-                  <th class="col-2">Discord ID</th>
-                  <th class="col-2">Region</th>
-                  <th class="col-2">Status</th>
-                  <th class="col-2">Handles/Links</th>
-                </tr>
-              </thead>
+              
               <tbody class="afacad">
                 <tr>
-                  <th scope="row" class="p-0">
-                    <img
-                      src="assets/fighter/colors/BBCF_Kokonoe_color_8.png"
-                      width="44"
-                      height="100"
-                    />
-                  </th>
-                  <td><a href="https://x.com/kisaltofgc">Kisalto</a></td>
-                  <td>Kisaltoo</td>
-                  <td>Brasil</td>
-                  <td>Ativo</td>
-                  <td>
-                    <a href="https://replaytheater.app/?game=unib&p1=kisalto"
-                      >Replay Theater</a
-                    >
-                  </td>
+                  <td>Porrada Infinita de Golpe Triplo</td>
                 </tr>
                 <tr>
-                  <th scope="row" class="p-0">
-                    <img
-                      src="assets/fighter/colors/BBCF_Kokonoe_color_8.png"
-                      width="44"
-                      height="100"
-                    />
-                  </th>
-                  <td><a href="https://x.com/kisaltofgc">Kisalto</a></td>
-                  <td>Kisaltoo</td>
-                  <td>Brasil</td>
-                  <td>Ativo</td>
-                  <td>
-                    <a href="https://replaytheater.app/?game=unib&p1=kisalto"
-                      >Replay Theater</a
-                    >
-                  </td>
+                  <td>→↓→ + P</td>
                 </tr>
+                
               </tbody>
             </table>
           </div>
@@ -114,9 +76,9 @@
                 <tr>
                   <td>
                     <img
-                      src="assets\fighter\portraits\{{ guide.game.sigla }}_{{
+                      src="assets\fighter\icons\{{ guide.game.sigla }}_{{
                         guide.fighter.nome
-                      }}_Portrait.png"
+                      }}_Icon.png"
                       width="100%"
                     />
                   </td>
@@ -165,28 +127,6 @@
                 </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-      </div>
-      <div class="row mt-2">
-        <div class="col-1"></div>
-        <div class="col-10 card rounded border border-2 overview">
-          <div class="card-header mt-2">
-            <h5 class="titulos text-center fw-bolder">COLORS</h5>
-          </div>
-          <div class="card-body row">
-            <div class="col-1"></div>
-            <div class="row col-10">
-              @for (color of colors; track $index) {
-              <div class="col-2 border p-2">
-                <p class="titulos border-bottom text-center">Color {{ color }}</p>
-                <!-- <img
-                  src="assets/fighter/colors/{{ character.game.sigla }}_{{ character.nome }}_color_{{ color }}.png"
-                  width="100%"
-                /> -->
-              </div>
-              }
-            </div>
           </div>
         </div>
       </div>

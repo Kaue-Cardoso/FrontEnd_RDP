@@ -1,13 +1,13 @@
-<div class="container-fluid mt-5" style="background-color: black; border-radius: 20px; opacity: 0.9;">
-  <h2 class="text-center mb-4" style="color: white;">Eventos de Jogos</h2>
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Eventos de Jogos</h2>
   @if (loginService.hasPermission("MODERADOR") || loginService.hasPermission("VETERANO")) {
-  <a class="btn btn-success" href="main/community/event-form/">Criar Novo Evento</a>
+    <a class="btn btn-success" href="main/community/event-form/">Criar Novo Evento</a>
   }
   <!-- Exibir eventos em cards usando @for -->
-  <div class="row">
+  <div class="row my-4">
       @for (Evento of lista; track $index) {
           <div class="col-md-4 h-100">
-              <div class="card mb-4 shadow-sm" style="background-color: rgb(255, 255, 255);">
+              <div class="card mb-4 shadow-sm">
                   <div class="card-body">
                       <div class="bg-image card-image-top" mdbRipple rippleColor="light">
                           <img  class="img-fluid"
@@ -20,10 +20,8 @@
                           <small class="text-muted">Data do evento: {{ Evento.date }}</small>
                       </p>
                       <a href="{{ Evento.link }}" target="_blank" class="btn btn-danger">Acessar Evento</a>
-                      <a class="btn btn-primary" href="main/community/event-form/edit/{{Evento.id}}">Editar Evento</a>
-                      <a class="btn btn-outline" (click)="deleteById(Evento);">Deletar Evento</a>
-                      <p>{{Evento.game[0].nome}}</p>
-
+                      <a class="btn btn-primary" href="main/community/event-form/edit/{{Evento.id}}">Editar</a>
+                      <a class="btn btn-outline" (click)="deleteById(Evento);">Deletar</a>
                   </div>
               </div>
           </div>

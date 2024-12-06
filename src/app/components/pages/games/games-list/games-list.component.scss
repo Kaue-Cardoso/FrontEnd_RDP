@@ -1,10 +1,8 @@
-.config{
-    margin: 0;
-    background-color: var(--preto);
-}
 .fundo{
-    
+    margin-top: 5vh;
+    background-color: rgba(43, 42, 42, 0.8);
     padding: 5vh 0;
+    
 }
 .card-game{
     background-position: center;
@@ -49,4 +47,12 @@ form{
     a{
         color: var(--branco);
     }
+}
+.grade{
+    border: 8px solid transparent; /* Define a largura da borda */
+    border-image: url(/assets/details/Borda2.png) 4 stretch; /* Configura a imagem de borda */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    // background-color: rgba(209, 248, 255, 0.67); /* Cor de fundo, opcional */
+    padding: 15px; /* Distância do conteúdo para a borda */
 }

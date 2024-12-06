@@ -21,14 +21,13 @@ export const meuhttpInterceptor: HttpInterceptorFn = (request, next) => {
 	  
         if (err.status === 401) { //401 - NON AUTHORIZED
 
-          alert('401 - tratar aqui - VOCESSS VAO TRATAR ESSES ERROSSS ');
-          router.navigate(['/login']);
-
+          alert('401 - Ação não autorizada ');
+          router.navigate(['/main/dashboard']);
 
         } else if (err.status === 403) { //403 - FORBIDDEN
 
-          alert('403 - tratar aqui - VOCESSS VAO TRATAR ESSES ERROSSS ');
-		  router.navigate(['/login']);
+          alert('403 - Ação nao permitida ');
+		  router.navigate(['/main/dashboard']);
 
         } else {
           console.error('HTTP error:', err);

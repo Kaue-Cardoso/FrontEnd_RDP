@@ -1,31 +1,21 @@
 .config{
     margin: 0;
     padding: 5vh 0;
-    background-color: var(--preto);
     background-size: cover;
-    // height: 100%;
-}
-.card-game{
-    background-position: center;
-    background-size: cover;
-    height: 10rem;
-    margin: 2rem 5rem;
-    cursor: pointer;
-    // padding: 5rem;
-}
-.card-style{
-    display: flex;
-    justify-content: flex-end;
-    align-items: end;
-    padding: 0 4%;
-    height: inherit;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
-    color: var(--branco);
-    font-size: 1.5rem;
-}
-.card-style:hover{
     color: var(--laranja);
-    background: none;
+}
+.card{
+    background-color: rgba(43, 42, 42, 0.8);
+    border-radius: 0;
+    // border: ;
+}
+.grade{
+    border: 8px solid transparent; /* Define a largura da borda */
+    border-image: url(/assets/details/Borda2.png) 4 stretch; /* Configura a imagem de borda */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    // background-color: rgba(209, 248, 255, 0.67); /* Cor de fundo, opcional */
+    padding: 15px; /* Distância do conteúdo para a borda */
 }
 form{
     color: var(--laranja);
@@ -44,8 +34,24 @@ form{
 }
 .butao:hover{
     border: 1px solid var(--branco);
-
     a{
         color: var(--branco);
     }
+}
+.configTable{
+    padding: 0 10vw;
+}
+tr{
+    cursor: pointer;
+    // background-color: var(--branco);
+}
+th{
+    color: var(--laranja);
+    text-transform: uppercase;
+}
+tbody tr:hover{
+    background-color: #3c3c3c;
+}
+td{
+    color: var(--branco);
 }

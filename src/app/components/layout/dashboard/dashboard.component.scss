@@ -29,3 +29,11 @@
 .card-img-top{
     height: 25vh;   
 }
+.grade{
+    border: 8px solid transparent; /* Define a largura da borda */
+    border-image: url(/assets/details/Borda2.png) 4 stretch; /* Configura a imagem de borda */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    // background-color: rgba(209, 248, 255, 0.67); /* Cor de fundo, opcional */
+    padding: 15px; /* Distância do conteúdo para a borda */
+}

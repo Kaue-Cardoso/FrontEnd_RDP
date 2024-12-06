@@ -17,32 +17,36 @@ export class EventService {
 
   constructor() { }
 
-  findAll(): Observable<Evento[]>{
-    return this.http.get<Evento[]>(this.API+"/findAll")
+  findAll(): Observable<Evento[]> {
+    return this.http.get<Evento[]>(this.API + "/findAll")
   }
 
-  findLast5(): Observable<Evento[]>{
-    return this.http.get<Evento[]>(this.API+"/findLast5")
+  findLast5(): Observable<Evento[]> {
+    return this.http.get<Evento[]>(this.API + "/findLast5")
   }
 
-  delete(id:number): Observable<string>{
-    return this.http.delete<string>(this.API+"/delete/"+id, {responseType: 'text' as 'json'});
+  delete(id: number): Observable<string> {
+    return this.http.delete<string>(this.API + "/delete/" + id, { responseType: 'text' as 'json' });
   }
 
-  save(evento: Evento): Observable<string>{
-    return this.http.post<string>(this.API+"/save", evento, {responseType: 'text' as 'json'});
+  save(evento: Evento): Observable<string> {
+    return this.http.post<string>(this.API + "/save", evento, { responseType: 'text' as 'json' });
   }
 
-  update(evento: Evento, id:number): Observable<string>{
-    return this.http.put<string>(this.API+"/update/"+id, evento, {responseType: 'text' as 'json'});
+  update(evento: Evento, id: number): Observable<string> {
+    return this.http.put<string>(this.API + "/update/" + id, evento, { responseType: 'text' as 'json' });
   }
 
-  findById(id:number): Observable<Evento>{
-    return this.http.get<Evento>(this.API+"/findById/"+id);
+  findById(id: number): Observable<Evento> {
+    return this.http.get<Evento>(this.API + "/findById/" + id);
   }
 
-  getAllGames(): Observable<Game[]> {
-    return this.http.get<Game[]>(this.API+"/findAll");
-}
+  getAllEvents(): Observable<Evento[]> {
+    return this.http.get<Evento[]>(this.API + "/findAll");
+  }
+  getAllEventsByGames(sigla: string): Observable<Evento[]> {
+    return this.http.get<Evento[]>(this.API + "/findAllByGame/"+sigla);
+  }
+
 
 }

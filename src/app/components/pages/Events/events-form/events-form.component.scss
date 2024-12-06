@@ -1,3 +1,11 @@
+*{
+    color: var(--branco);
+}
+@media (min-width: 576px) {
+    .tamanho{
+        width: 50%;
+    }
+}
 .saveEvent{
     background-color: rgb(209, 109, 72);
     opacity: 0.7;
