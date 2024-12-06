@@ -44,6 +44,11 @@ export class GamesProfileComponent {
   irParaGuias(): void {
     this.router.navigate(['/main/guides', this.sigla]);
   }
+  irParaEventos(): void {
+    this.router.navigate(['/main/community/event-list']);
+  }
+  
+
 }
 
 
