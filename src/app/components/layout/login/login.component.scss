@@ -20,3 +20,8 @@
         box-shadow: none;
     }
 }
+@media (min-width: 577px) {
+    .card{
+        width: 25%;
+    }
+}
