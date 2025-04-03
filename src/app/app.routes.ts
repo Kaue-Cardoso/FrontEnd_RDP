@@ -21,6 +21,7 @@ import { loginGuard } from './auth/login.guard';
 export const routes: Routes = [
   { path: '', redirectTo: 'main/dashboard', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'user-form', component: UserFormComponent },
   { path: 'main', component: MainComponent, children: [
     { path: 'dashboard', component: DashboardComponent },
       { path: 'games', component: GamesListComponent },
@@ -34,7 +35,6 @@ export const routes: Routes = [
       { path: 'guide-form', component: GuideFormComponent },
       { path: 'guides/:sigla', component: GuideListComponent },
       { path: 'guide/:id', component: GuideComponent },
-      { path: 'user-form', component: UserFormComponent },
       { path: 'user-list', component: UserListComponent },
       {path: 'community',component: CommunityComponent,children: [
           { path: 'event-form', component: EventsFormComponent },
